@@ -16,11 +16,7 @@ module Services
         notifications = notifications.limit(parameters['limit'].to_i)
       end
       return notifications.to_a.map do |notification|
-        {
-          type: notification.type,
-          data: notification.data,
-          created_at: notification.created_at.utc.iso8601
-        }
+        Decorators::Notification.decorate(notification).to_h
       end
     end
 

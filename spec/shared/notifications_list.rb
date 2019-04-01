@@ -2,11 +2,11 @@ RSpec.shared_examples 'GET /' do
   describe 'GET /' do
 
     describe 'Nominal case' do
-      let!(:notif_1) { create(:notification, type: 'T1', data: {foo: 'D1'}, account: account) }
-      let!(:notif_2) { create(:notification, type: 'T2', data: {bar: 'D2'}, account: account) }
+      let!(:notif_1) { create(:notification, type: 'T1', data: {foo: 'D1'}, account: account, created_at: DateTime.yesterday) }
+      let!(:notif_2) { create(:notification, type: 'T2', data: {bar: 'D2'}, account: account, created_at: DateTime.now) }
 
       before do
-        get '/', {token: gateway.token, app_key: appli.key, session_id: session.token}
+        get '/notifications', {token: gateway.token, app_key: appli.key, session_id: session.token}
       end
       it 'returns a OK (200) status code' do
         expect(last_response.status).to be 200
@@ -33,7 +33,7 @@ RSpec.shared_examples 'GET /' do
 
       describe ':skip attribute' do
         before do
-          get '/', {token: gateway.token, app_key: appli.key, session_id: session.token, skip: 1}
+          get '/notifications', {token: gateway.token, app_key: appli.key, session_id: session.token, skip: 1}
         end
         it 'returns a OK (200) status code' do
           expect(last_response.status).to be 200
@@ -54,7 +54,7 @@ RSpec.shared_examples 'GET /' do
 
       describe ':limit attribute' do
         before do
-          get '/', {token: gateway.token, app_key: appli.key, session_id: session.token, limit: 1}
+          get '/notifications', {token: gateway.token, app_key: appli.key, session_id: session.token, limit: 1}
         end
         it 'returns a OK (200) status code' do
           expect(last_response.status).to be 200
@@ -79,7 +79,7 @@ RSpec.shared_examples 'GET /' do
     describe '400 errors' do
       describe 'when the session ID is not found' do
         before do
-          get '/', {token: gateway.token, app_key: appli.key}
+          get '/notifications', {token: gateway.token, app_key: appli.key}
         end
         it 'returns a Bad Request (400) status code' do
           expect(last_response.status).to be 400
@@ -97,7 +97,7 @@ RSpec.shared_examples 'GET /' do
     describe '404 errors' do
       describe 'when the session ID is not found' do
         before do
-          get '/', {token: gateway.token, app_key: appli.key, session_id: 'unknown'}
+          get '/notifications', {token: gateway.token, app_key: appli.key, session_id: 'unknown'}
         end
         it 'returns a Not Found (404) status code' do
           expect(last_response.status).to be 404

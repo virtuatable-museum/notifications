@@ -11,4 +11,7 @@ RSpec.describe Controllers::Notifications do
 
   # rspec spec/controllers/notifications_spec.rb[1:1]
   include_examples 'GET /'
+
+  # rspec spec/controllers/notifications_spec.rb[1:2]
+  include_examples 'PUT /:id'
 end
