@@ -1,0 +1,1041 @@
+# Logfile created on 2019-04-03 09:00:17 +0200 by logger.rb/56815
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-04-03 09:00:17 +0200 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [631ac4ee] Running /usr/bin/env mkdir -p /tmp as deploy@51.15.76.189
+ DEBUG [631ac4ee] Command: /usr/bin/env mkdir -p /tmp
+  INFO [87f8c6bb] Finished in 2.368 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-arkaan-notifications-staging-babausse.sh 0.0%
+  INFO Uploading /tmp/git-ssh-arkaan-notifications-staging-babausse.sh 100.0%
+  INFO [44047207] Running /usr/bin/env chmod 700 /tmp/git-ssh-arkaan-notifications-staging-babausse.sh as deploy@51.15.76.189
+ DEBUG [44047207] Command: /usr/bin/env chmod 700 /tmp/git-ssh-arkaan-notifications-staging-babausse.sh
+  INFO [a4f539ab] Finished in 0.110 seconds with exit status 0 (successful).
+  INFO [f89159ff] Running /usr/bin/env git ls-remote git@github.com:jdr-tools/notifications.git HEAD as deploy@51.15.76.189
+ DEBUG [f89159ff] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git ls-remote git@github.com:jdr-tools/notifications.git HEAD )
+ DEBUG [a38c7c9e] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb	HEAD
+  INFO [a38c7c9e] Finished in 1.630 seconds with exit status 0 (successful).
+  INFO [41134c40] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared /var/www/arkaan-notifications/releases as deploy@51.15.76.189
+ DEBUG [41134c40] Command: /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared /var/www/arkaan-notifications/releases
+  INFO [f9fc56a1] Finished in 0.060 seconds with exit status 0 (successful).
+ DEBUG [a245f4e4] Running [ -f /var/www/arkaan-notifications/current/REVISION ] as deploy@51.15.76.189
+ DEBUG [a245f4e4] Command: [ -f /var/www/arkaan-notifications/current/REVISION ]
+ DEBUG [48d58c68] Finished in 0.111 seconds with exit status 1 (failed).
+ DEBUG [7fb5dbde] Running [ -f /var/www/arkaan-notifications/repo/HEAD ] as deploy@51.15.76.189
+ DEBUG [7fb5dbde] Command: [ -f /var/www/arkaan-notifications/repo/HEAD ]
+ DEBUG [c511f9ba] Finished in 0.111 seconds with exit status 1 (failed).
+ DEBUG [4f85cb47] Running if test ! -d /var/www/arkaan-notifications; then echo "Directory does not exist '/var/www/arkaan-notifications'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [4f85cb47] Command: if test ! -d /var/www/arkaan-notifications; then echo "Directory does not exist '/var/www/arkaan-notifications'" 1>&2; false; fi
+ DEBUG [6e0d30e5] Finished in 0.111 seconds with exit status 0 (successful).
+  INFO [a4c516dd] Running /usr/bin/env git clone --mirror git@github.com:jdr-tools/notifications.git /var/www/arkaan-notifications/repo as deploy@51.15.76.189
+ DEBUG [a4c516dd] Command: cd /var/www/arkaan-notifications && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git clone --mirror git@github.com:jdr-tools/notifications.git /var/www/arkaan-notifications/repo )
+ DEBUG [e3ee5d3d] 	Cloning into bare repository '/var/www/arkaan-notifications/repo'...
+  INFO [e3ee5d3d] Finished in 1.575 seconds with exit status 0 (successful).
+ DEBUG [17c7cf96] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [17c7cf96] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [209ca766] Finished in 0.119 seconds with exit status 0 (successful).
+  INFO [31c3b44c] Running /usr/bin/env git remote set-url origin git@github.com:jdr-tools/notifications.git as deploy@51.15.76.189
+ DEBUG [31c3b44c] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git remote set-url origin git@github.com:jdr-tools/notifications.git )
+  INFO [4b236434] Finished in 0.173 seconds with exit status 0 (successful).
+  INFO [f8034158] Running /usr/bin/env git remote update --prune as deploy@51.15.76.189
+ DEBUG [f8034158] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [f75bb899] 	Fetching origin
+  INFO [f75bb899] Finished in 1.293 seconds with exit status 0 (successful).
+ DEBUG [66240b58] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [66240b58] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [1634975a] Finished in 0.116 seconds with exit status 0 (successful).
+  INFO [0fd2221c] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190403070022 as deploy@51.15.76.189
+ DEBUG [0fd2221c] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190403070022 )
+  INFO [e18fb9aa] Finished in 0.172 seconds with exit status 0 (successful).
+  INFO [cd570c0b] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/arkaan-notifications/releases/20190403070022 as deploy@51.15.76.189
+ DEBUG [cd570c0b] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/arkaan-notifications/releases/20190403070022 )
+  INFO [4a5f7cfa] Finished in 0.184 seconds with exit status 0 (successful).
+ DEBUG [7362e87b] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [7362e87b] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [02b04580] Finished in 0.158 seconds with exit status 0 (successful).
+ DEBUG [41845dac] Running /usr/bin/env git rev-list --max-count=1 master as deploy@51.15.76.189
+ DEBUG [41845dac] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [70b234dd] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb
+ DEBUG [70b234dd] Finished in 0.168 seconds with exit status 0 (successful).
+ DEBUG [3ba8e309] Running if test ! -d /var/www/arkaan-notifications/releases/20190403070022; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190403070022'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [3ba8e309] Command: if test ! -d /var/www/arkaan-notifications/releases/20190403070022; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190403070022'" 1>&2; false; fi
+ DEBUG [4b8f2f97] Finished in 0.168 seconds with exit status 0 (successful).
+  INFO [a7f62481] Running /usr/bin/env echo "caa65b6a4fb179340d1816f8a75684aea76ca2fb" > REVISION as deploy@51.15.76.189
+ DEBUG [a7f62481] Command: cd /var/www/arkaan-notifications/releases/20190403070022 && /usr/bin/env echo "caa65b6a4fb179340d1816f8a75684aea76ca2fb" > REVISION
+  INFO [cbe06a67] Finished in 0.115 seconds with exit status 0 (successful).
+  INFO [1648cee0] Running /usr/bin/env ln -s /var/www/arkaan-notifications/releases/20190403070022 /var/www/arkaan-notifications/releases/current as deploy@51.15.76.189
+ DEBUG [1648cee0] Command: /usr/bin/env ln -s /var/www/arkaan-notifications/releases/20190403070022 /var/www/arkaan-notifications/releases/current
+  INFO [ee5f93ec] Finished in 0.112 seconds with exit status 0 (successful).
+  INFO [f1dcca7b] Running /usr/bin/env mv /var/www/arkaan-notifications/releases/current /var/www/arkaan-notifications as deploy@51.15.76.189
+ DEBUG [f1dcca7b] Command: /usr/bin/env mv /var/www/arkaan-notifications/releases/current /var/www/arkaan-notifications
+  INFO [29ed0501] Finished in 0.105 seconds with exit status 0 (successful).
+ DEBUG [ab020fb9] Running /usr/bin/env ls -x /var/www/arkaan-notifications/releases as deploy@51.15.76.189
+ DEBUG [ab020fb9] Command: /usr/bin/env ls -x /var/www/arkaan-notifications/releases
+ DEBUG [85d96e46] 	20190403070022
+ DEBUG [85d96e46] Finished in 0.103 seconds with exit status 0 (successful).
+ DEBUG [cb509387] Running if test ! -d /var/www/arkaan-notifications/releases; then echo "Directory does not exist '/var/www/arkaan-notifications/releases'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [cb509387] Command: if test ! -d /var/www/arkaan-notifications/releases; then echo "Directory does not exist '/var/www/arkaan-notifications/releases'" 1>&2; false; fi
+ DEBUG [2c3fe06d] Finished in 0.157 seconds with exit status 0 (successful).
+  INFO [23ff6704] Running /usr/bin/env echo "Branch master (at caa65b6a4fb179340d1816f8a75684aea76ca2fb) deployed as release 20190403070022 by babausse" >> /var/www/arkaan-notifications/revisions.log as deploy@51.15.76.189
+ DEBUG [23ff6704] Command: cd /var/www/arkaan-notifications/releases && /usr/bin/env echo "Branch master (at caa65b6a4fb179340d1816f8a75684aea76ca2fb) deployed as release 20190403070022 by babausse" >> /var/www/arkaan-notifications/revisions.log
+  INFO [1dbe7b9b] Finished in 0.165 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-04-03 09:14:26 +0200 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [93338462] Running /usr/bin/env mkdir -p /tmp as deploy@51.15.76.189
+ DEBUG [93338462] Command: /usr/bin/env mkdir -p /tmp
+  INFO [08c09696] Finished in 1.953 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-arkaan-notifications-staging-babausse.sh 0.0%
+  INFO Uploading /tmp/git-ssh-arkaan-notifications-staging-babausse.sh 100.0%
+  INFO [25069dcc] Running /usr/bin/env chmod 700 /tmp/git-ssh-arkaan-notifications-staging-babausse.sh as deploy@51.15.76.189
+ DEBUG [25069dcc] Command: /usr/bin/env chmod 700 /tmp/git-ssh-arkaan-notifications-staging-babausse.sh
+  INFO [c385a23b] Finished in 0.103 seconds with exit status 0 (successful).
+  INFO [96776224] Running /usr/bin/env git ls-remote git@github.com:jdr-tools/notifications.git HEAD as deploy@51.15.76.189
+ DEBUG [96776224] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git ls-remote git@github.com:jdr-tools/notifications.git HEAD )
+ DEBUG [082cfac4] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb	HEAD
+  INFO [082cfac4] Finished in 1.272 seconds with exit status 0 (successful).
+  INFO [36244dd8] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared /var/www/arkaan-notifications/releases as deploy@51.15.76.189
+ DEBUG [36244dd8] Command: /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared /var/www/arkaan-notifications/releases
+  INFO [cc744fe9] Finished in 0.061 seconds with exit status 0 (successful).
+ DEBUG [b7c1e614] Running [ -f /var/www/arkaan-notifications/current/REVISION ] as deploy@51.15.76.189
+ DEBUG [b7c1e614] Command: [ -f /var/www/arkaan-notifications/current/REVISION ]
+ DEBUG [23d044a4] Finished in 0.109 seconds with exit status 0 (successful).
+ DEBUG [d1d7c72f] Running /usr/bin/env cat /var/www/arkaan-notifications/current/REVISION 2>/dev/null as deploy@51.15.76.189
+ DEBUG [d1d7c72f] Command: /usr/bin/env cat /var/www/arkaan-notifications/current/REVISION 2>/dev/null
+ DEBUG [6a0691a7] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb
+ DEBUG [6a0691a7] Finished in 0.111 seconds with exit status 0 (successful).
+ DEBUG [2a77a461] Running [ -f /var/www/arkaan-notifications/repo/HEAD ] as deploy@51.15.76.189
+ DEBUG [2a77a461] Command: [ -f /var/www/arkaan-notifications/repo/HEAD ]
+ DEBUG [c6a9be28] Finished in 0.101 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/arkaan-notifications/repo
+ DEBUG [ccc448d6] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [ccc448d6] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [57ac30ab] Finished in 0.170 seconds with exit status 0 (successful).
+  INFO [327f5b9e] Running /usr/bin/env git remote set-url origin git@github.com:jdr-tools/notifications.git as deploy@51.15.76.189
+ DEBUG [327f5b9e] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git remote set-url origin git@github.com:jdr-tools/notifications.git )
+  INFO [b9b05b3c] Finished in 0.166 seconds with exit status 0 (successful).
+  INFO [6754f31f] Running /usr/bin/env git remote update --prune as deploy@51.15.76.189
+ DEBUG [6754f31f] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [38c3bc9c] 	Fetching origin
+  INFO [38c3bc9c] Finished in 1.313 seconds with exit status 0 (successful).
+ DEBUG [f2c87f1a] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [f2c87f1a] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [6a6146d5] Finished in 0.110 seconds with exit status 0 (successful).
+  INFO [59b59cb3] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190403071430 as deploy@51.15.76.189
+ DEBUG [59b59cb3] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190403071430 )
+  INFO [97912903] Finished in 0.173 seconds with exit status 0 (successful).
+  INFO [47be3648] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/arkaan-notifications/releases/20190403071430 as deploy@51.15.76.189
+ DEBUG [47be3648] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/arkaan-notifications/releases/20190403071430 )
+  INFO [2ed33cd9] Finished in 0.185 seconds with exit status 0 (successful).
+ DEBUG [f68fe1e5] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [f68fe1e5] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [2ed7c9cc] Finished in 0.167 seconds with exit status 0 (successful).
+ DEBUG [42f55cb5] Running /usr/bin/env git rev-list --max-count=1 master as deploy@51.15.76.189
+ DEBUG [42f55cb5] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [ecd78437] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb
+ DEBUG [ecd78437] Finished in 0.162 seconds with exit status 0 (successful).
+ DEBUG [5cb39a2e] Running if test ! -d /var/www/arkaan-notifications/releases/20190403071430; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190403071430'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [5cb39a2e] Command: if test ! -d /var/www/arkaan-notifications/releases/20190403071430; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190403071430'" 1>&2; false; fi
+ DEBUG [29bdc336] Finished in 0.158 seconds with exit status 0 (successful).
+  INFO [43472c95] Running /usr/bin/env echo "caa65b6a4fb179340d1816f8a75684aea76ca2fb" > REVISION as deploy@51.15.76.189
+ DEBUG [43472c95] Command: cd /var/www/arkaan-notifications/releases/20190403071430 && /usr/bin/env echo "caa65b6a4fb179340d1816f8a75684aea76ca2fb" > REVISION
+  INFO [854e6b84] Finished in 0.113 seconds with exit status 0 (successful).
+ DEBUG [94e9f750] Running if test ! -d /var/www/arkaan-notifications/releases/20190403071430; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190403071430'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [94e9f750] Command: if test ! -d /var/www/arkaan-notifications/releases/20190403071430; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190403071430'" 1>&2; false; fi
+ DEBUG [8579d29d] Finished in 0.169 seconds with exit status 0 (successful).
+ DEBUG [329be78f] Running /usr/bin/env bundle check --path /var/www/arkaan-notifications/shared/bundle as deploy@51.15.76.189
+ DEBUG [329be78f] Command: cd /var/www/arkaan-notifications/releases/20190403071430 && /usr/bin/env bundle check --path /var/www/arkaan-notifications/shared/bundle
+ DEBUG [162cb4af] 	/usr/bin/env: 
+ DEBUG [162cb4af] 	‘bundle’
+ DEBUG [162cb4af] 	: No such file or directory
+ DEBUG [162cb4af] 	
+ DEBUG [162cb4af] Finished in 0.166 seconds with exit status 127 (failed).
+  INFO [355a6662] Running /usr/bin/env bundle install --path /var/www/arkaan-notifications/shared/bundle --jobs 4 --without development test --deployment --quiet as deploy@51.15.76.189
+ DEBUG [355a6662] Command: cd /var/www/arkaan-notifications/releases/20190403071430 && /usr/bin/env bundle install --path /var/www/arkaan-notifications/shared/bundle --jobs 4 --without development test --deployment --quiet
+ DEBUG [978aaf47] 	/usr/bin/env: 
+ DEBUG [978aaf47] 	‘bundle’
+ DEBUG [978aaf47] 	: No such file or directory
+ DEBUG [978aaf47] 	
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-04-03 09:51:11 +0200 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [be72a38b] Running /usr/bin/env mkdir -p /tmp as deploy@51.15.76.189
+ DEBUG [be72a38b] Command: /usr/bin/env mkdir -p /tmp
+  INFO [d8e82c2f] Finished in 2.661 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-arkaan-notifications-staging-babausse.sh 0.0%
+  INFO Uploading /tmp/git-ssh-arkaan-notifications-staging-babausse.sh 100.0%
+  INFO [f571f6b3] Running /usr/bin/env chmod 700 /tmp/git-ssh-arkaan-notifications-staging-babausse.sh as deploy@51.15.76.189
+ DEBUG [f571f6b3] Command: /usr/bin/env chmod 700 /tmp/git-ssh-arkaan-notifications-staging-babausse.sh
+  INFO [974ad3b5] Finished in 0.112 seconds with exit status 0 (successful).
+  INFO [b580ca9a] Running /usr/bin/env git ls-remote git@github.com:jdr-tools/notifications.git HEAD as deploy@51.15.76.189
+ DEBUG [b580ca9a] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git ls-remote git@github.com:jdr-tools/notifications.git HEAD )
+ DEBUG [b07c7fda] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb	HEAD
+  INFO [b07c7fda] Finished in 1.314 seconds with exit status 0 (successful).
+  INFO [5cc3fbd2] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared /var/www/arkaan-notifications/releases as deploy@51.15.76.189
+ DEBUG [5cc3fbd2] Command: /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared /var/www/arkaan-notifications/releases
+  INFO [03f883f3] Finished in 0.067 seconds with exit status 0 (successful).
+ DEBUG [dfc0561b] Running [ -f /var/www/arkaan-notifications/current/REVISION ] as deploy@51.15.76.189
+ DEBUG [dfc0561b] Command: [ -f /var/www/arkaan-notifications/current/REVISION ]
+ DEBUG [273de8e1] Finished in 0.108 seconds with exit status 0 (successful).
+ DEBUG [4cb5b22c] Running /usr/bin/env cat /var/www/arkaan-notifications/current/REVISION 2>/dev/null as deploy@51.15.76.189
+ DEBUG [4cb5b22c] Command: /usr/bin/env cat /var/www/arkaan-notifications/current/REVISION 2>/dev/null
+ DEBUG [d766080c] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb
+ DEBUG [d766080c] Finished in 0.111 seconds with exit status 0 (successful).
+ DEBUG [b7bb119a] Running [ -f /var/www/arkaan-notifications/repo/HEAD ] as deploy@51.15.76.189
+ DEBUG [b7bb119a] Command: [ -f /var/www/arkaan-notifications/repo/HEAD ]
+ DEBUG [f8995d7a] Finished in 0.098 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/arkaan-notifications/repo
+ DEBUG [df0e5948] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [df0e5948] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [e3c192f0] Finished in 0.168 seconds with exit status 0 (successful).
+  INFO [d89e769d] Running /usr/bin/env git remote set-url origin git@github.com:jdr-tools/notifications.git as deploy@51.15.76.189
+ DEBUG [d89e769d] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git remote set-url origin git@github.com:jdr-tools/notifications.git )
+  INFO [d560866c] Finished in 0.178 seconds with exit status 0 (successful).
+  INFO [14c7317e] Running /usr/bin/env git remote update --prune as deploy@51.15.76.189
+ DEBUG [14c7317e] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [143049d4] 	Fetching origin
+  INFO [143049d4] Finished in 1.305 seconds with exit status 0 (successful).
+ DEBUG [fe516d19] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [fe516d19] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [c4aed058] Finished in 0.108 seconds with exit status 0 (successful).
+  INFO [c3941e42] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190403075115 as deploy@51.15.76.189
+ DEBUG [c3941e42] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190403075115 )
+  INFO [16be77f4] Finished in 0.172 seconds with exit status 0 (successful).
+  INFO [015d0929] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/arkaan-notifications/releases/20190403075115 as deploy@51.15.76.189
+ DEBUG [015d0929] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/arkaan-notifications/releases/20190403075115 )
+  INFO [47d3a27c] Finished in 0.188 seconds with exit status 0 (successful).
+ DEBUG [6abf2070] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [6abf2070] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [cbf7249a] Finished in 0.171 seconds with exit status 0 (successful).
+ DEBUG [112fca16] Running /usr/bin/env git rev-list --max-count=1 master as deploy@51.15.76.189
+ DEBUG [112fca16] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [8847d88e] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb
+ DEBUG [8847d88e] Finished in 0.178 seconds with exit status 0 (successful).
+ DEBUG [50f5dccb] Running if test ! -d /var/www/arkaan-notifications/releases/20190403075115; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190403075115'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [50f5dccb] Command: if test ! -d /var/www/arkaan-notifications/releases/20190403075115; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190403075115'" 1>&2; false; fi
+ DEBUG [f228eb29] Finished in 0.168 seconds with exit status 0 (successful).
+  INFO [5b24358f] Running /usr/bin/env echo "caa65b6a4fb179340d1816f8a75684aea76ca2fb" > REVISION as deploy@51.15.76.189
+ DEBUG [5b24358f] Command: cd /var/www/arkaan-notifications/releases/20190403075115 && /usr/bin/env echo "caa65b6a4fb179340d1816f8a75684aea76ca2fb" > REVISION
+  INFO [6ab36a4d] Finished in 0.106 seconds with exit status 0 (successful).
+ DEBUG [44dbfad1] Running if test ! -d /var/www/arkaan-notifications/releases/20190403075115; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190403075115'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [44dbfad1] Command: if test ! -d /var/www/arkaan-notifications/releases/20190403075115; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190403075115'" 1>&2; false; fi
+ DEBUG [ad508a71] Finished in 0.168 seconds with exit status 0 (successful).
+ DEBUG [f7ffc3af] Running /usr/bin/env bundle check --path /var/www/arkaan-notifications/shared/bundle as deploy@51.15.76.189
+ DEBUG [f7ffc3af] Command: cd /var/www/arkaan-notifications/releases/20190403075115 && /usr/bin/env bundle check --path /var/www/arkaan-notifications/shared/bundle
+ DEBUG [4549b1ff] 	/usr/bin/env: 
+ DEBUG [4549b1ff] 	‘bundle’
+ DEBUG [4549b1ff] 	: No such file or directory
+ DEBUG [4549b1ff] 	
+ DEBUG [4549b1ff] Finished in 0.170 seconds with exit status 127 (failed).
+  INFO [af5dd042] Running /usr/bin/env bundle install --path /var/www/arkaan-notifications/shared/bundle --jobs 4 --without development test --deployment --quiet as deploy@51.15.76.189
+ DEBUG [af5dd042] Command: cd /var/www/arkaan-notifications/releases/20190403075115 && /usr/bin/env bundle install --path /var/www/arkaan-notifications/shared/bundle --jobs 4 --without development test --deployment --quiet
+ DEBUG [58c06f3d] 	/usr/bin/env: 
+ DEBUG [58c06f3d] 	‘bundle’
+ DEBUG [58c06f3d] 	: No such file or directory
+ DEBUG [58c06f3d] 	
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-04-03 23:15:00 +0200 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [7733084c] Running /usr/bin/env mkdir -p /tmp as deploy@51.15.76.189
+ DEBUG [7733084c] Command: /usr/bin/env mkdir -p /tmp
+  INFO [23155f0a] Finished in 2.389 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-arkaan-notifications-staging-babausse.sh 0.0%
+  INFO Uploading /tmp/git-ssh-arkaan-notifications-staging-babausse.sh 100.0%
+  INFO [af719d8f] Running /usr/bin/env chmod 700 /tmp/git-ssh-arkaan-notifications-staging-babausse.sh as deploy@51.15.76.189
+ DEBUG [af719d8f] Command: /usr/bin/env chmod 700 /tmp/git-ssh-arkaan-notifications-staging-babausse.sh
+  INFO [d1125c11] Finished in 0.095 seconds with exit status 0 (successful).
+  INFO [8c5c3644] Running /usr/bin/env git ls-remote git@github.com:jdr-tools/notifications.git HEAD as deploy@51.15.76.189
+ DEBUG [8c5c3644] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git ls-remote git@github.com:jdr-tools/notifications.git HEAD )
+ DEBUG [dd0cd1fa] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb	HEAD
+  INFO [dd0cd1fa] Finished in 1.256 seconds with exit status 0 (successful).
+  INFO [d8acd98b] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared /var/www/arkaan-notifications/releases as deploy@51.15.76.189
+ DEBUG [d8acd98b] Command: /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared /var/www/arkaan-notifications/releases
+  INFO [7fd48791] Finished in 0.052 seconds with exit status 0 (successful).
+ DEBUG [042f528c] Running [ -f /var/www/arkaan-notifications/current/REVISION ] as deploy@51.15.76.189
+ DEBUG [042f528c] Command: [ -f /var/www/arkaan-notifications/current/REVISION ]
+ DEBUG [700ed5a7] Finished in 0.091 seconds with exit status 0 (successful).
+ DEBUG [f37584fd] Running /usr/bin/env cat /var/www/arkaan-notifications/current/REVISION 2>/dev/null as deploy@51.15.76.189
+ DEBUG [f37584fd] Command: /usr/bin/env cat /var/www/arkaan-notifications/current/REVISION 2>/dev/null
+ DEBUG [7eddf645] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb
+ DEBUG [7eddf645] Finished in 0.100 seconds with exit status 0 (successful).
+ DEBUG [0bd5e02b] Running [ -f /var/www/arkaan-notifications/repo/HEAD ] as deploy@51.15.76.189
+ DEBUG [0bd5e02b] Command: [ -f /var/www/arkaan-notifications/repo/HEAD ]
+ DEBUG [8a1b4d1b] Finished in 0.085 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/arkaan-notifications/repo
+ DEBUG [8d729411] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [8d729411] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [414780c6] Finished in 0.146 seconds with exit status 0 (successful).
+  INFO [2dca385d] Running /usr/bin/env git remote set-url origin git@github.com:jdr-tools/notifications.git as deploy@51.15.76.189
+ DEBUG [2dca385d] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git remote set-url origin git@github.com:jdr-tools/notifications.git )
+  INFO [cce5fbcb] Finished in 0.157 seconds with exit status 0 (successful).
+  INFO [e451c328] Running /usr/bin/env git remote update --prune as deploy@51.15.76.189
+ DEBUG [e451c328] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [80eb8075] 	Fetching origin
+  INFO [80eb8075] Finished in 1.247 seconds with exit status 0 (successful).
+ DEBUG [efc2fa87] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [efc2fa87] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [c33dc183] Finished in 0.097 seconds with exit status 0 (successful).
+  INFO [0fa97587] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190403211504 as deploy@51.15.76.189
+ DEBUG [0fa97587] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190403211504 )
+  INFO [18b79e89] Finished in 0.144 seconds with exit status 0 (successful).
+  INFO [bd5acd5d] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/arkaan-notifications/releases/20190403211504 as deploy@51.15.76.189
+ DEBUG [bd5acd5d] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/arkaan-notifications/releases/20190403211504 )
+  INFO [6095e3e2] Finished in 0.154 seconds with exit status 0 (successful).
+ DEBUG [7c0e141b] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [7c0e141b] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [89ffe8dc] Finished in 0.148 seconds with exit status 0 (successful).
+ DEBUG [d75c7b75] Running /usr/bin/env git rev-list --max-count=1 master as deploy@51.15.76.189
+ DEBUG [d75c7b75] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [85b8add8] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb
+ DEBUG [85b8add8] Finished in 0.145 seconds with exit status 0 (successful).
+ DEBUG [72fd0649] Running if test ! -d /var/www/arkaan-notifications/releases/20190403211504; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190403211504'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [72fd0649] Command: if test ! -d /var/www/arkaan-notifications/releases/20190403211504; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190403211504'" 1>&2; false; fi
+ DEBUG [29bcca85] Finished in 0.146 seconds with exit status 0 (successful).
+  INFO [0882ec27] Running /usr/bin/env echo "caa65b6a4fb179340d1816f8a75684aea76ca2fb" > REVISION as deploy@51.15.76.189
+ DEBUG [0882ec27] Command: cd /var/www/arkaan-notifications/releases/20190403211504 && /usr/bin/env echo "caa65b6a4fb179340d1816f8a75684aea76ca2fb" > REVISION
+  INFO [7e070196] Finished in 0.088 seconds with exit status 0 (successful).
+ DEBUG [6ddb37d7] Running if test ! -d /var/www/arkaan-notifications/releases/20190403211504; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190403211504'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [6ddb37d7] Command: if test ! -d /var/www/arkaan-notifications/releases/20190403211504; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190403211504'" 1>&2; false; fi
+ DEBUG [abe6177c] Finished in 0.094 seconds with exit status 0 (successful).
+ DEBUG [789c3426] Running /usr/bin/env bundle check --path /var/www/arkaan-notifications/shared/bundle as deploy@51.15.76.189
+ DEBUG [789c3426] Command: cd /var/www/arkaan-notifications/releases/20190403211504 && /usr/bin/env bundle check --path /var/www/arkaan-notifications/shared/bundle
+ DEBUG [a655d387] 	/usr/bin/env: 
+ DEBUG [a655d387] 	‘bundle’
+ DEBUG [a655d387] 	: No such file or directory
+ DEBUG [a655d387] 	
+ DEBUG [a655d387] Finished in 0.142 seconds with exit status 127 (failed).
+  INFO [2a7c7acb] Running /usr/bin/env bundle install --path /var/www/arkaan-notifications/shared/bundle --jobs 4 --without development test --deployment --quiet as deploy@51.15.76.189
+ DEBUG [2a7c7acb] Command: cd /var/www/arkaan-notifications/releases/20190403211504 && /usr/bin/env bundle install --path /var/www/arkaan-notifications/shared/bundle --jobs 4 --without development test --deployment --quiet
+ DEBUG [4bd7a70b] 	/usr/bin/env: 
+ DEBUG [4bd7a70b] 	‘bundle’
+ DEBUG [4bd7a70b] 	: No such file or directory
+ DEBUG [4bd7a70b] 	
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-04-03 23:15:46 +0200 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [ff8601c9] Running /usr/bin/env mkdir -p /tmp as deploy@51.15.76.189
+ DEBUG [ff8601c9] Command: /usr/bin/env mkdir -p /tmp
+  INFO [95c2e084] Finished in 1.963 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-arkaan-notifications-staging-babausse.sh 0.0%
+  INFO Uploading /tmp/git-ssh-arkaan-notifications-staging-babausse.sh 100.0%
+  INFO [9c56d7b4] Running /usr/bin/env chmod 700 /tmp/git-ssh-arkaan-notifications-staging-babausse.sh as deploy@51.15.76.189
+ DEBUG [9c56d7b4] Command: /usr/bin/env chmod 700 /tmp/git-ssh-arkaan-notifications-staging-babausse.sh
+  INFO [3f85e428] Finished in 0.093 seconds with exit status 0 (successful).
+  INFO [350883bb] Running /usr/bin/env git ls-remote git@github.com:jdr-tools/notifications.git HEAD as deploy@51.15.76.189
+ DEBUG [350883bb] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git ls-remote git@github.com:jdr-tools/notifications.git HEAD )
+ DEBUG [90975bda] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb	HEAD
+  INFO [90975bda] Finished in 1.247 seconds with exit status 0 (successful).
+  INFO [0b24076d] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared /var/www/arkaan-notifications/releases as deploy@51.15.76.189
+ DEBUG [0b24076d] Command: /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared /var/www/arkaan-notifications/releases
+  INFO [e0b69429] Finished in 0.044 seconds with exit status 0 (successful).
+ DEBUG [b08ee48b] Running [ -f /var/www/arkaan-notifications/current/REVISION ] as deploy@51.15.76.189
+ DEBUG [b08ee48b] Command: [ -f /var/www/arkaan-notifications/current/REVISION ]
+ DEBUG [8d3a8a88] Finished in 0.094 seconds with exit status 0 (successful).
+ DEBUG [b1208dc2] Running /usr/bin/env cat /var/www/arkaan-notifications/current/REVISION 2>/dev/null as deploy@51.15.76.189
+ DEBUG [b1208dc2] Command: /usr/bin/env cat /var/www/arkaan-notifications/current/REVISION 2>/dev/null
+ DEBUG [bde9c535] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb
+ DEBUG [bde9c535] Finished in 0.097 seconds with exit status 0 (successful).
+ DEBUG [ec513baf] Running [ -f /var/www/arkaan-notifications/repo/HEAD ] as deploy@51.15.76.189
+ DEBUG [ec513baf] Command: [ -f /var/www/arkaan-notifications/repo/HEAD ]
+ DEBUG [7cd98266] Finished in 0.085 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/arkaan-notifications/repo
+ DEBUG [6810b883] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [6810b883] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [f4499c5e] Finished in 0.136 seconds with exit status 0 (successful).
+  INFO [7afae0b4] Running /usr/bin/env git remote set-url origin git@github.com:jdr-tools/notifications.git as deploy@51.15.76.189
+ DEBUG [7afae0b4] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git remote set-url origin git@github.com:jdr-tools/notifications.git )
+  INFO [51830ead] Finished in 0.146 seconds with exit status 0 (successful).
+  INFO [6853e2bb] Running /usr/bin/env git remote update --prune as deploy@51.15.76.189
+ DEBUG [6853e2bb] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [1e21e87c] 	Fetching origin
+  INFO [1e21e87c] Finished in 1.290 seconds with exit status 0 (successful).
+ DEBUG [69e809e5] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [69e809e5] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [739d2e5d] Finished in 0.090 seconds with exit status 0 (successful).
+  INFO [8c4cc914] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190403211550 as deploy@51.15.76.189
+ DEBUG [8c4cc914] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190403211550 )
+  INFO [80d835ca] Finished in 0.159 seconds with exit status 0 (successful).
+  INFO [85cbe9e3] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/arkaan-notifications/releases/20190403211550 as deploy@51.15.76.189
+ DEBUG [85cbe9e3] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/arkaan-notifications/releases/20190403211550 )
+  INFO [1618a797] Finished in 0.155 seconds with exit status 0 (successful).
+ DEBUG [27b1a255] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [27b1a255] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [0e2d0498] Finished in 0.146 seconds with exit status 0 (successful).
+ DEBUG [dbf74354] Running /usr/bin/env git rev-list --max-count=1 master as deploy@51.15.76.189
+ DEBUG [dbf74354] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [949725bb] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb
+ DEBUG [949725bb] Finished in 0.153 seconds with exit status 0 (successful).
+ DEBUG [b3ec508c] Running if test ! -d /var/www/arkaan-notifications/releases/20190403211550; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190403211550'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [b3ec508c] Command: if test ! -d /var/www/arkaan-notifications/releases/20190403211550; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190403211550'" 1>&2; false; fi
+ DEBUG [7b4575b6] Finished in 0.139 seconds with exit status 0 (successful).
+  INFO [eb84e3c5] Running /usr/bin/env echo "caa65b6a4fb179340d1816f8a75684aea76ca2fb" > REVISION as deploy@51.15.76.189
+ DEBUG [eb84e3c5] Command: cd /var/www/arkaan-notifications/releases/20190403211550 && /usr/bin/env echo "caa65b6a4fb179340d1816f8a75684aea76ca2fb" > REVISION
+  INFO [18202000] Finished in 0.097 seconds with exit status 0 (successful).
+  INFO [3abdc959] Running /usr/bin/env ln -s /var/www/arkaan-notifications/releases/20190403211550 /var/www/arkaan-notifications/releases/current as deploy@51.15.76.189
+ DEBUG [3abdc959] Command: /usr/bin/env ln -s /var/www/arkaan-notifications/releases/20190403211550 /var/www/arkaan-notifications/releases/current
+  INFO [903d8929] Finished in 0.085 seconds with exit status 0 (successful).
+  INFO [31246572] Running /usr/bin/env mv /var/www/arkaan-notifications/releases/current /var/www/arkaan-notifications as deploy@51.15.76.189
+ DEBUG [31246572] Command: /usr/bin/env mv /var/www/arkaan-notifications/releases/current /var/www/arkaan-notifications
+  INFO [fd902e03] Finished in 0.089 seconds with exit status 0 (successful).
+ DEBUG [c530a8e9] Running /usr/bin/env ls -x /var/www/arkaan-notifications/releases as deploy@51.15.76.189
+ DEBUG [c530a8e9] Command: /usr/bin/env ls -x /var/www/arkaan-notifications/releases
+ DEBUG [4c7cbabd] 	20190403070022	20190403071430	20190403075115	20190403211504	20190403211550
+ DEBUG [4c7cbabd] Finished in 0.089 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 5 deployed releases on 51.15.76.189
+ DEBUG [e85ff302] Running [ -d /var/www/arkaan-notifications/current ] as deploy@51.15.76.189
+ DEBUG [e85ff302] Command: [ -d /var/www/arkaan-notifications/current ]
+ DEBUG [3f62e7e5] Finished in 0.084 seconds with exit status 0 (successful).
+ DEBUG [433532ad] Running /usr/bin/env readlink /var/www/arkaan-notifications/current as deploy@51.15.76.189
+ DEBUG [433532ad] Command: /usr/bin/env readlink /var/www/arkaan-notifications/current
+ DEBUG [81e7cb7d] 	/var/www/arkaan-notifications/releases/20190403211550
+ DEBUG [81e7cb7d] Finished in 0.093 seconds with exit status 0 (successful).
+  INFO No old releases (keeping newest 5) on 51.15.76.189
+ DEBUG [9952bdc4] Running if test ! -d /var/www/arkaan-notifications/releases; then echo "Directory does not exist '/var/www/arkaan-notifications/releases'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [9952bdc4] Command: if test ! -d /var/www/arkaan-notifications/releases; then echo "Directory does not exist '/var/www/arkaan-notifications/releases'" 1>&2; false; fi
+ DEBUG [a421b950] Finished in 0.139 seconds with exit status 0 (successful).
+  INFO [11228a4a] Running /usr/bin/env echo "Branch master (at caa65b6a4fb179340d1816f8a75684aea76ca2fb) deployed as release 20190403211550 by babausse" >> /var/www/arkaan-notifications/revisions.log as deploy@51.15.76.189
+ DEBUG [11228a4a] Command: cd /var/www/arkaan-notifications/releases && /usr/bin/env echo "Branch master (at caa65b6a4fb179340d1816f8a75684aea76ca2fb) deployed as release 20190403211550 by babausse" >> /var/www/arkaan-notifications/revisions.log
+  INFO [d8dabcf6] Finished in 0.152 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-04-03 23:16:18 +0200 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [377c3788] Running /usr/bin/env mkdir -p /tmp as deploy@51.15.76.189
+ DEBUG [377c3788] Command: /usr/bin/env mkdir -p /tmp
+  INFO [95c6a44a] Finished in 1.979 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-arkaan-notifications-staging-babausse.sh 0.0%
+  INFO Uploading /tmp/git-ssh-arkaan-notifications-staging-babausse.sh 100.0%
+  INFO [1fb20282] Running /usr/bin/env chmod 700 /tmp/git-ssh-arkaan-notifications-staging-babausse.sh as deploy@51.15.76.189
+ DEBUG [1fb20282] Command: /usr/bin/env chmod 700 /tmp/git-ssh-arkaan-notifications-staging-babausse.sh
+  INFO [5999ec2f] Finished in 0.095 seconds with exit status 0 (successful).
+  INFO [daaacdc3] Running /usr/bin/env git ls-remote git@github.com:jdr-tools/notifications.git HEAD as deploy@51.15.76.189
+ DEBUG [daaacdc3] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git ls-remote git@github.com:jdr-tools/notifications.git HEAD )
+ DEBUG [9dd237b5] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb	HEAD
+  INFO [9dd237b5] Finished in 1.237 seconds with exit status 0 (successful).
+  INFO [b37ccefa] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared /var/www/arkaan-notifications/releases as deploy@51.15.76.189
+ DEBUG [b37ccefa] Command: /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared /var/www/arkaan-notifications/releases
+  INFO [bbdcefd3] Finished in 0.052 seconds with exit status 0 (successful).
+ DEBUG [7e13207a] Running [ -f /var/www/arkaan-notifications/current/REVISION ] as deploy@51.15.76.189
+ DEBUG [7e13207a] Command: [ -f /var/www/arkaan-notifications/current/REVISION ]
+ DEBUG [3145e8c5] Finished in 0.093 seconds with exit status 0 (successful).
+ DEBUG [4791127b] Running /usr/bin/env cat /var/www/arkaan-notifications/current/REVISION 2>/dev/null as deploy@51.15.76.189
+ DEBUG [4791127b] Command: /usr/bin/env cat /var/www/arkaan-notifications/current/REVISION 2>/dev/null
+ DEBUG [f002d0db] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb
+ DEBUG [f002d0db] Finished in 0.085 seconds with exit status 0 (successful).
+ DEBUG [b91059d6] Running [ -f /var/www/arkaan-notifications/repo/HEAD ] as deploy@51.15.76.189
+ DEBUG [b91059d6] Command: [ -f /var/www/arkaan-notifications/repo/HEAD ]
+ DEBUG [c785ca80] Finished in 0.084 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/arkaan-notifications/repo
+ DEBUG [92a2ef0a] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [92a2ef0a] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [136b3f93] Finished in 0.147 seconds with exit status 0 (successful).
+  INFO [4e05dcff] Running /usr/bin/env git remote set-url origin git@github.com:jdr-tools/notifications.git as deploy@51.15.76.189
+ DEBUG [4e05dcff] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git remote set-url origin git@github.com:jdr-tools/notifications.git )
+  INFO [8a62d634] Finished in 0.151 seconds with exit status 0 (successful).
+  INFO [986423ee] Running /usr/bin/env git remote update --prune as deploy@51.15.76.189
+ DEBUG [986423ee] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [aaaadb5b] 	Fetching origin
+  INFO [aaaadb5b] Finished in 1.246 seconds with exit status 0 (successful).
+ DEBUG [b21b4330] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [b21b4330] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [de3a548d] Finished in 0.095 seconds with exit status 0 (successful).
+  INFO [faa22f4a] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190403211622 as deploy@51.15.76.189
+ DEBUG [faa22f4a] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190403211622 )
+  INFO [6eb43f20] Finished in 0.154 seconds with exit status 0 (successful).
+  INFO [8f125b14] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/arkaan-notifications/releases/20190403211622 as deploy@51.15.76.189
+ DEBUG [8f125b14] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/arkaan-notifications/releases/20190403211622 )
+  INFO [6bf5996a] Finished in 0.153 seconds with exit status 0 (successful).
+ DEBUG [357f339d] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [357f339d] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [1d222eab] Finished in 0.138 seconds with exit status 0 (successful).
+ DEBUG [a4d05f8d] Running /usr/bin/env git rev-list --max-count=1 master as deploy@51.15.76.189
+ DEBUG [a4d05f8d] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [b8abc821] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb
+ DEBUG [b8abc821] Finished in 0.145 seconds with exit status 0 (successful).
+ DEBUG [55c6d7f4] Running if test ! -d /var/www/arkaan-notifications/releases/20190403211622; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190403211622'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [55c6d7f4] Command: if test ! -d /var/www/arkaan-notifications/releases/20190403211622; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190403211622'" 1>&2; false; fi
+ DEBUG [6e21f269] Finished in 0.139 seconds with exit status 0 (successful).
+  INFO [5ca12143] Running /usr/bin/env echo "caa65b6a4fb179340d1816f8a75684aea76ca2fb" > REVISION as deploy@51.15.76.189
+ DEBUG [5ca12143] Command: cd /var/www/arkaan-notifications/releases/20190403211622 && /usr/bin/env echo "caa65b6a4fb179340d1816f8a75684aea76ca2fb" > REVISION
+  INFO [7caec707] Finished in 0.088 seconds with exit status 0 (successful).
+  INFO [5a36780f] Running /usr/bin/env ln -s /var/www/arkaan-notifications/releases/20190403211622 /var/www/arkaan-notifications/releases/current as deploy@51.15.76.189
+ DEBUG [5a36780f] Command: /usr/bin/env ln -s /var/www/arkaan-notifications/releases/20190403211622 /var/www/arkaan-notifications/releases/current
+  INFO [0bae17e7] Finished in 0.095 seconds with exit status 0 (successful).
+  INFO [69793eb8] Running /usr/bin/env mv /var/www/arkaan-notifications/releases/current /var/www/arkaan-notifications as deploy@51.15.76.189
+ DEBUG [69793eb8] Command: /usr/bin/env mv /var/www/arkaan-notifications/releases/current /var/www/arkaan-notifications
+  INFO [a4c01975] Finished in 0.092 seconds with exit status 0 (successful).
+ DEBUG [03272833] Running /usr/bin/env ls -x /var/www/arkaan-notifications/releases as deploy@51.15.76.189
+ DEBUG [03272833] Command: /usr/bin/env ls -x /var/www/arkaan-notifications/releases
+ DEBUG [758c1afd] 	20190403070022	20190403071430	20190403075115	20190403211504	20190403211550
+20190403211622
+ DEBUG [758c1afd] Finished in 0.086 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on 51.15.76.189
+ DEBUG [c229fc00] Running [ -d /var/www/arkaan-notifications/current ] as deploy@51.15.76.189
+ DEBUG [c229fc00] Command: [ -d /var/www/arkaan-notifications/current ]
+ DEBUG [552362fa] Finished in 0.084 seconds with exit status 0 (successful).
+ DEBUG [ddc10df4] Running /usr/bin/env readlink /var/www/arkaan-notifications/current as deploy@51.15.76.189
+ DEBUG [ddc10df4] Command: /usr/bin/env readlink /var/www/arkaan-notifications/current
+ DEBUG [fc471f31] 	/var/www/arkaan-notifications/releases/20190403211622
+ DEBUG [fc471f31] Finished in 0.088 seconds with exit status 0 (successful).
+  INFO [ad930a2a] Running /usr/bin/env rm -rf /var/www/arkaan-notifications/releases/20190403070022 as deploy@51.15.76.189
+ DEBUG [ad930a2a] Command: /usr/bin/env rm -rf /var/www/arkaan-notifications/releases/20190403070022
+  INFO [3065ca76] Finished in 0.087 seconds with exit status 0 (successful).
+ DEBUG [0c9872a2] Running if test ! -d /var/www/arkaan-notifications/releases; then echo "Directory does not exist '/var/www/arkaan-notifications/releases'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [0c9872a2] Command: if test ! -d /var/www/arkaan-notifications/releases; then echo "Directory does not exist '/var/www/arkaan-notifications/releases'" 1>&2; false; fi
+ DEBUG [f1e5b691] Finished in 0.092 seconds with exit status 0 (successful).
+  INFO [e76dfff2] Running /usr/bin/env echo "Branch master (at caa65b6a4fb179340d1816f8a75684aea76ca2fb) deployed as release 20190403211622 by babausse" >> /var/www/arkaan-notifications/revisions.log as deploy@51.15.76.189
+ DEBUG [e76dfff2] Command: cd /var/www/arkaan-notifications/releases && /usr/bin/env echo "Branch master (at caa65b6a4fb179340d1816f8a75684aea76ca2fb) deployed as release 20190403211622 by babausse" >> /var/www/arkaan-notifications/revisions.log
+  INFO [698da86c] Finished in 0.142 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-04-03 23:16:50 +0200 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [b9f05659] Running /usr/bin/env mkdir -p /tmp as deploy@51.15.76.189
+ DEBUG [b9f05659] Command: /usr/bin/env mkdir -p /tmp
+  INFO [21a73a22] Finished in 2.035 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-arkaan-notifications-staging-babausse.sh 0.0%
+  INFO Uploading /tmp/git-ssh-arkaan-notifications-staging-babausse.sh 100.0%
+  INFO [b6b92c61] Running /usr/bin/env chmod 700 /tmp/git-ssh-arkaan-notifications-staging-babausse.sh as deploy@51.15.76.189
+ DEBUG [b6b92c61] Command: /usr/bin/env chmod 700 /tmp/git-ssh-arkaan-notifications-staging-babausse.sh
+  INFO [c00d2931] Finished in 0.095 seconds with exit status 0 (successful).
+  INFO [b1b05997] Running /usr/bin/env git ls-remote git@github.com:jdr-tools/notifications.git HEAD as deploy@51.15.76.189
+ DEBUG [b1b05997] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git ls-remote git@github.com:jdr-tools/notifications.git HEAD )
+ DEBUG [e0ef2274] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb	HEAD
+  INFO [e0ef2274] Finished in 1.248 seconds with exit status 0 (successful).
+  INFO [b1a20258] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared /var/www/arkaan-notifications/releases as deploy@51.15.76.189
+ DEBUG [b1a20258] Command: /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared /var/www/arkaan-notifications/releases
+  INFO [51372f60] Finished in 0.055 seconds with exit status 0 (successful).
+ DEBUG [b6d452f3] Running [ -f /var/www/arkaan-notifications/current/REVISION ] as deploy@51.15.76.189
+ DEBUG [b6d452f3] Command: [ -f /var/www/arkaan-notifications/current/REVISION ]
+ DEBUG [17692a37] Finished in 0.085 seconds with exit status 0 (successful).
+ DEBUG [eecccb7a] Running /usr/bin/env cat /var/www/arkaan-notifications/current/REVISION 2>/dev/null as deploy@51.15.76.189
+ DEBUG [eecccb7a] Command: /usr/bin/env cat /var/www/arkaan-notifications/current/REVISION 2>/dev/null
+ DEBUG [8c98046a] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb
+ DEBUG [8c98046a] Finished in 0.098 seconds with exit status 0 (successful).
+ DEBUG [8494d2c8] Running [ -f /var/www/arkaan-notifications/repo/HEAD ] as deploy@51.15.76.189
+ DEBUG [8494d2c8] Command: [ -f /var/www/arkaan-notifications/repo/HEAD ]
+ DEBUG [3ed51af4] Finished in 0.096 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/arkaan-notifications/repo
+ DEBUG [2e53a24e] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [2e53a24e] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [fdc26bc0] Finished in 0.147 seconds with exit status 0 (successful).
+  INFO [befc71ea] Running /usr/bin/env git remote set-url origin git@github.com:jdr-tools/notifications.git as deploy@51.15.76.189
+ DEBUG [befc71ea] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git remote set-url origin git@github.com:jdr-tools/notifications.git )
+  INFO [d01c021f] Finished in 0.145 seconds with exit status 0 (successful).
+  INFO [2ef5eee0] Running /usr/bin/env git remote update --prune as deploy@51.15.76.189
+ DEBUG [2ef5eee0] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [35c093db] 	Fetching origin
+  INFO [35c093db] Finished in 1.255 seconds with exit status 0 (successful).
+ DEBUG [feadfe81] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [feadfe81] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [f18f7f44] Finished in 0.099 seconds with exit status 0 (successful).
+  INFO [69341a32] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190403211654 as deploy@51.15.76.189
+ DEBUG [69341a32] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190403211654 )
+  INFO [72e03c6d] Finished in 0.152 seconds with exit status 0 (successful).
+  INFO [5a81e843] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/arkaan-notifications/releases/20190403211654 as deploy@51.15.76.189
+ DEBUG [5a81e843] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/arkaan-notifications/releases/20190403211654 )
+  INFO [10517f06] Finished in 0.163 seconds with exit status 0 (successful).
+ DEBUG [d5cfc95b] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [d5cfc95b] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [3fed24cf] Finished in 0.147 seconds with exit status 0 (successful).
+ DEBUG [1b96d7d1] Running /usr/bin/env git rev-list --max-count=1 master as deploy@51.15.76.189
+ DEBUG [1b96d7d1] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [d0168bcf] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb
+ DEBUG [d0168bcf] Finished in 0.154 seconds with exit status 0 (successful).
+ DEBUG [21a45a41] Running if test ! -d /var/www/arkaan-notifications/releases/20190403211654; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190403211654'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [21a45a41] Command: if test ! -d /var/www/arkaan-notifications/releases/20190403211654; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190403211654'" 1>&2; false; fi
+ DEBUG [bdccaf2e] Finished in 0.150 seconds with exit status 0 (successful).
+  INFO [ba89edb1] Running /usr/bin/env echo "caa65b6a4fb179340d1816f8a75684aea76ca2fb" > REVISION as deploy@51.15.76.189
+ DEBUG [ba89edb1] Command: cd /var/www/arkaan-notifications/releases/20190403211654 && /usr/bin/env echo "caa65b6a4fb179340d1816f8a75684aea76ca2fb" > REVISION
+  INFO [73be0071] Finished in 0.090 seconds with exit status 0 (successful).
+  INFO [717ce672] Running /usr/bin/env ln -s /var/www/arkaan-notifications/releases/20190403211654 /var/www/arkaan-notifications/releases/current as deploy@51.15.76.189
+ DEBUG [717ce672] Command: /usr/bin/env ln -s /var/www/arkaan-notifications/releases/20190403211654 /var/www/arkaan-notifications/releases/current
+  INFO [6e8505f0] Finished in 0.089 seconds with exit status 0 (successful).
+  INFO [454fdb9d] Running /usr/bin/env mv /var/www/arkaan-notifications/releases/current /var/www/arkaan-notifications as deploy@51.15.76.189
+ DEBUG [454fdb9d] Command: /usr/bin/env mv /var/www/arkaan-notifications/releases/current /var/www/arkaan-notifications
+  INFO [13e76266] Finished in 0.096 seconds with exit status 0 (successful).
+ DEBUG [0f580b79] Running /usr/bin/env ls -x /var/www/arkaan-notifications/releases as deploy@51.15.76.189
+ DEBUG [0f580b79] Command: /usr/bin/env ls -x /var/www/arkaan-notifications/releases
+ DEBUG [7c5ba41e] 	20190403071430	20190403075115	20190403211504	20190403211550	20190403211622
+20190403211654
+ DEBUG [7c5ba41e] Finished in 0.086 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on 51.15.76.189
+ DEBUG [c2cb592e] Running [ -d /var/www/arkaan-notifications/current ] as deploy@51.15.76.189
+ DEBUG [c2cb592e] Command: [ -d /var/www/arkaan-notifications/current ]
+ DEBUG [6618dd8c] Finished in 0.085 seconds with exit status 0 (successful).
+ DEBUG [f3a9a93e] Running /usr/bin/env readlink /var/www/arkaan-notifications/current as deploy@51.15.76.189
+ DEBUG [f3a9a93e] Command: /usr/bin/env readlink /var/www/arkaan-notifications/current
+ DEBUG [fbbf262f] 	/var/www/arkaan-notifications/releases/20190403211654
+ DEBUG [fbbf262f] Finished in 0.086 seconds with exit status 0 (successful).
+  INFO [77971463] Running /usr/bin/env rm -rf /var/www/arkaan-notifications/releases/20190403071430 as deploy@51.15.76.189
+ DEBUG [77971463] Command: /usr/bin/env rm -rf /var/www/arkaan-notifications/releases/20190403071430
+  INFO [093bdae9] Finished in 0.093 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-04-03 23:20:16 +0200 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [f03f5386] Running /usr/bin/env mkdir -p /tmp as deploy@51.15.76.189
+ DEBUG [f03f5386] Command: /usr/bin/env mkdir -p /tmp
+  INFO [02c59f5b] Finished in 2.018 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-arkaan-notifications-staging-babausse.sh 0.0%
+  INFO Uploading /tmp/git-ssh-arkaan-notifications-staging-babausse.sh 100.0%
+  INFO [65a3596d] Running /usr/bin/env chmod 700 /tmp/git-ssh-arkaan-notifications-staging-babausse.sh as deploy@51.15.76.189
+ DEBUG [65a3596d] Command: /usr/bin/env chmod 700 /tmp/git-ssh-arkaan-notifications-staging-babausse.sh
+  INFO [bbfc9f8c] Finished in 0.094 seconds with exit status 0 (successful).
+  INFO [4ab8cc29] Running /usr/bin/env git ls-remote git@github.com:jdr-tools/notifications.git HEAD as deploy@51.15.76.189
+ DEBUG [4ab8cc29] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git ls-remote git@github.com:jdr-tools/notifications.git HEAD )
+ DEBUG [b498a432] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb	HEAD
+  INFO [b498a432] Finished in 1.924 seconds with exit status 0 (successful).
+  INFO [aa4a4690] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared /var/www/arkaan-notifications/releases as deploy@51.15.76.189
+ DEBUG [aa4a4690] Command: /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared /var/www/arkaan-notifications/releases
+  INFO [64a98197] Finished in 0.044 seconds with exit status 0 (successful).
+ DEBUG [b80c3d54] Running [ -f /var/www/arkaan-notifications/current/REVISION ] as deploy@51.15.76.189
+ DEBUG [b80c3d54] Command: [ -f /var/www/arkaan-notifications/current/REVISION ]
+ DEBUG [2fc4d4e9] Finished in 0.095 seconds with exit status 0 (successful).
+ DEBUG [883159b3] Running /usr/bin/env cat /var/www/arkaan-notifications/current/REVISION 2>/dev/null as deploy@51.15.76.189
+ DEBUG [883159b3] Command: /usr/bin/env cat /var/www/arkaan-notifications/current/REVISION 2>/dev/null
+ DEBUG [0098158e] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb
+ DEBUG [0098158e] Finished in 0.088 seconds with exit status 0 (successful).
+ DEBUG [da8bf079] Running [ -f /var/www/arkaan-notifications/repo/HEAD ] as deploy@51.15.76.189
+ DEBUG [da8bf079] Command: [ -f /var/www/arkaan-notifications/repo/HEAD ]
+ DEBUG [5f7bdd31] Finished in 0.093 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/arkaan-notifications/repo
+ DEBUG [775ff7da] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [775ff7da] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [f0f1d12c] Finished in 0.136 seconds with exit status 0 (successful).
+  INFO [dfb1fe71] Running /usr/bin/env git remote set-url origin git@github.com:jdr-tools/notifications.git as deploy@51.15.76.189
+ DEBUG [dfb1fe71] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git remote set-url origin git@github.com:jdr-tools/notifications.git )
+  INFO [1b4bb21a] Finished in 0.154 seconds with exit status 0 (successful).
+  INFO [0ff88850] Running /usr/bin/env git remote update --prune as deploy@51.15.76.189
+ DEBUG [0ff88850] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [152b5ae0] 	Fetching origin
+  INFO [152b5ae0] Finished in 1.290 seconds with exit status 0 (successful).
+ DEBUG [0ea537cf] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [0ea537cf] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [953f1238] Finished in 0.089 seconds with exit status 0 (successful).
+  INFO [03103ca0] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190403212021 as deploy@51.15.76.189
+ DEBUG [03103ca0] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190403212021 )
+  INFO [4b6d4ae2] Finished in 0.143 seconds with exit status 0 (successful).
+  INFO [bca522df] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/arkaan-notifications/releases/20190403212021 as deploy@51.15.76.189
+ DEBUG [bca522df] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/arkaan-notifications/releases/20190403212021 )
+  INFO [25dbf644] Finished in 0.154 seconds with exit status 0 (successful).
+ DEBUG [136c4f13] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [136c4f13] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [dfa4dbef] Finished in 0.146 seconds with exit status 0 (successful).
+ DEBUG [62d64420] Running /usr/bin/env git rev-list --max-count=1 master as deploy@51.15.76.189
+ DEBUG [62d64420] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [d058e573] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb
+ DEBUG [d058e573] Finished in 0.145 seconds with exit status 0 (successful).
+ DEBUG [0098fbb6] Running if test ! -d /var/www/arkaan-notifications/releases/20190403212021; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190403212021'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [0098fbb6] Command: if test ! -d /var/www/arkaan-notifications/releases/20190403212021; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190403212021'" 1>&2; false; fi
+ DEBUG [46478ed6] Finished in 0.146 seconds with exit status 0 (successful).
+  INFO [d5e53c6b] Running /usr/bin/env echo "caa65b6a4fb179340d1816f8a75684aea76ca2fb" > REVISION as deploy@51.15.76.189
+ DEBUG [d5e53c6b] Command: cd /var/www/arkaan-notifications/releases/20190403212021 && /usr/bin/env echo "caa65b6a4fb179340d1816f8a75684aea76ca2fb" > REVISION
+  INFO [d72d498f] Finished in 0.097 seconds with exit status 0 (successful).
+  INFO [53fb9cf0] Running /usr/bin/env ln -s /var/www/arkaan-notifications/releases/20190403212021 /var/www/arkaan-notifications/releases/current as deploy@51.15.76.189
+ DEBUG [53fb9cf0] Command: /usr/bin/env ln -s /var/www/arkaan-notifications/releases/20190403212021 /var/www/arkaan-notifications/releases/current
+  INFO [0b016f8b] Finished in 0.088 seconds with exit status 0 (successful).
+  INFO [1609368f] Running /usr/bin/env mv /var/www/arkaan-notifications/releases/current /var/www/arkaan-notifications as deploy@51.15.76.189
+ DEBUG [1609368f] Command: /usr/bin/env mv /var/www/arkaan-notifications/releases/current /var/www/arkaan-notifications
+  INFO [ecb5212c] Finished in 0.088 seconds with exit status 0 (successful).
+ DEBUG [c2fd4285] Running /usr/bin/env ls -x /var/www/arkaan-notifications/releases as deploy@51.15.76.189
+ DEBUG [c2fd4285] Command: /usr/bin/env ls -x /var/www/arkaan-notifications/releases
+ DEBUG [aafd9a9e] 	20190403075115	20190403211504	20190403211550	20190403211622	20190403211654
+20190403212021
+ DEBUG [aafd9a9e] Finished in 0.095 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on 51.15.76.189
+ DEBUG [92513cd9] Running [ -d /var/www/arkaan-notifications/current ] as deploy@51.15.76.189
+ DEBUG [92513cd9] Command: [ -d /var/www/arkaan-notifications/current ]
+ DEBUG [d3b0d000] Finished in 0.089 seconds with exit status 0 (successful).
+ DEBUG [95f5545a] Running /usr/bin/env readlink /var/www/arkaan-notifications/current as deploy@51.15.76.189
+ DEBUG [95f5545a] Command: /usr/bin/env readlink /var/www/arkaan-notifications/current
+ DEBUG [9f89e0c1] 	/var/www/arkaan-notifications/releases/20190403212021
+ DEBUG [9f89e0c1] Finished in 0.097 seconds with exit status 0 (successful).
+  INFO [678e6564] Running /usr/bin/env rm -rf /var/www/arkaan-notifications/releases/20190403075115 as deploy@51.15.76.189
+ DEBUG [678e6564] Command: /usr/bin/env rm -rf /var/www/arkaan-notifications/releases/20190403075115
+  INFO [a30cc4bd] Finished in 0.098 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-04-04 09:07:55 +0200 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [f4654182] Running /usr/bin/env mkdir -p /tmp as deploy@51.15.76.189
+ DEBUG [f4654182] Command: /usr/bin/env mkdir -p /tmp
+  INFO [a70dd0d3] Finished in 1.854 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-arkaan-notifications-staging-babausse.sh 0.0%
+  INFO Uploading /tmp/git-ssh-arkaan-notifications-staging-babausse.sh 100.0%
+  INFO [ba1fd120] Running /usr/bin/env chmod 700 /tmp/git-ssh-arkaan-notifications-staging-babausse.sh as deploy@51.15.76.189
+ DEBUG [ba1fd120] Command: /usr/bin/env chmod 700 /tmp/git-ssh-arkaan-notifications-staging-babausse.sh
+  INFO [a965567f] Finished in 0.086 seconds with exit status 0 (successful).
+  INFO [349d5237] Running /usr/bin/env git ls-remote git@github.com:jdr-tools/notifications.git HEAD as deploy@51.15.76.189
+ DEBUG [349d5237] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git ls-remote git@github.com:jdr-tools/notifications.git HEAD )
+ DEBUG [16a8c67c] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb	HEAD
+  INFO [16a8c67c] Finished in 1.284 seconds with exit status 0 (successful).
+  INFO [0eae9c9c] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared /var/www/arkaan-notifications/releases as deploy@51.15.76.189
+ DEBUG [0eae9c9c] Command: /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared /var/www/arkaan-notifications/releases
+  INFO [0fed8fdd] Finished in 0.052 seconds with exit status 0 (successful).
+ DEBUG [52633e78] Running [ -f /var/www/arkaan-notifications/current/REVISION ] as deploy@51.15.76.189
+ DEBUG [52633e78] Command: [ -f /var/www/arkaan-notifications/current/REVISION ]
+ DEBUG [6b70e344] Finished in 0.083 seconds with exit status 0 (successful).
+ DEBUG [805389ed] Running /usr/bin/env cat /var/www/arkaan-notifications/current/REVISION 2>/dev/null as deploy@51.15.76.189
+ DEBUG [805389ed] Command: /usr/bin/env cat /var/www/arkaan-notifications/current/REVISION 2>/dev/null
+ DEBUG [97f4a6af] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb
+ DEBUG [97f4a6af] Finished in 0.088 seconds with exit status 0 (successful).
+ DEBUG [511d61b9] Running [ -f /var/www/arkaan-notifications/repo/HEAD ] as deploy@51.15.76.189
+ DEBUG [511d61b9] Command: [ -f /var/www/arkaan-notifications/repo/HEAD ]
+ DEBUG [c425ce1d] Finished in 0.094 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/arkaan-notifications/repo
+ DEBUG [396c3af3] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [396c3af3] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [88266748] Finished in 0.147 seconds with exit status 0 (successful).
+  INFO [fafddd6e] Running /usr/bin/env git remote set-url origin git@github.com:jdr-tools/notifications.git as deploy@51.15.76.189
+ DEBUG [fafddd6e] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git remote set-url origin git@github.com:jdr-tools/notifications.git )
+  INFO [a656a672] Finished in 0.159 seconds with exit status 0 (successful).
+  INFO [2b6b1b69] Running /usr/bin/env git remote update --prune as deploy@51.15.76.189
+ DEBUG [2b6b1b69] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [419f34ba] 	Fetching origin
+  INFO [419f34ba] Finished in 1.269 seconds with exit status 0 (successful).
+ DEBUG [3a693994] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [3a693994] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [3be3a347] Finished in 0.090 seconds with exit status 0 (successful).
+  INFO [2df76f35] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190404070758 as deploy@51.15.76.189
+ DEBUG [2df76f35] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190404070758 )
+  INFO [af6971a0] Finished in 0.144 seconds with exit status 0 (successful).
+  INFO [594db745] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/arkaan-notifications/releases/20190404070758 as deploy@51.15.76.189
+ DEBUG [594db745] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/arkaan-notifications/releases/20190404070758 )
+  INFO [11599cee] Finished in 0.161 seconds with exit status 0 (successful).
+ DEBUG [612e8154] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [612e8154] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [c2233cc7] Finished in 0.148 seconds with exit status 0 (successful).
+ DEBUG [c42ee7e1] Running /usr/bin/env git rev-list --max-count=1 master as deploy@51.15.76.189
+ DEBUG [c42ee7e1] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [59c35ca2] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb
+ DEBUG [59c35ca2] Finished in 0.156 seconds with exit status 0 (successful).
+ DEBUG [256d82b6] Running if test ! -d /var/www/arkaan-notifications/releases/20190404070758; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190404070758'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [256d82b6] Command: if test ! -d /var/www/arkaan-notifications/releases/20190404070758; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190404070758'" 1>&2; false; fi
+ DEBUG [518df95e] Finished in 0.140 seconds with exit status 0 (successful).
+  INFO [08c15245] Running /usr/bin/env echo "caa65b6a4fb179340d1816f8a75684aea76ca2fb" > REVISION as deploy@51.15.76.189
+ DEBUG [08c15245] Command: cd /var/www/arkaan-notifications/releases/20190404070758 && /usr/bin/env echo "caa65b6a4fb179340d1816f8a75684aea76ca2fb" > REVISION
+  INFO [d81b626c] Finished in 0.098 seconds with exit status 0 (successful).
+  INFO [be4c825e] Running /usr/bin/env ln -s /var/www/arkaan-notifications/releases/20190404070758 /var/www/arkaan-notifications/releases/current as deploy@51.15.76.189
+ DEBUG [be4c825e] Command: /usr/bin/env ln -s /var/www/arkaan-notifications/releases/20190404070758 /var/www/arkaan-notifications/releases/current
+  INFO [df651233] Finished in 0.087 seconds with exit status 0 (successful).
+  INFO [1ea1c38f] Running /usr/bin/env mv /var/www/arkaan-notifications/releases/current /var/www/arkaan-notifications as deploy@51.15.76.189
+ DEBUG [1ea1c38f] Command: /usr/bin/env mv /var/www/arkaan-notifications/releases/current /var/www/arkaan-notifications
+  INFO [762767eb] Finished in 0.096 seconds with exit status 0 (successful).
+ DEBUG [1ad837f4] Running /usr/bin/env ls -x /var/www/arkaan-notifications/releases as deploy@51.15.76.189
+ DEBUG [1ad837f4] Command: /usr/bin/env ls -x /var/www/arkaan-notifications/releases
+ DEBUG [1a5b036b] 	20190403211504	20190403211550	20190403211622	20190403211654	20190403212021
+20190404070758
+ DEBUG [1a5b036b] Finished in 0.095 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on 51.15.76.189
+ DEBUG [8ebfd5c3] Running [ -d /var/www/arkaan-notifications/current ] as deploy@51.15.76.189
+ DEBUG [8ebfd5c3] Command: [ -d /var/www/arkaan-notifications/current ]
+ DEBUG [23b638e5] Finished in 0.086 seconds with exit status 0 (successful).
+ DEBUG [7f5bc24a] Running /usr/bin/env readlink /var/www/arkaan-notifications/current as deploy@51.15.76.189
+ DEBUG [7f5bc24a] Command: /usr/bin/env readlink /var/www/arkaan-notifications/current
+ DEBUG [e5d51ef0] 	/var/www/arkaan-notifications/releases/20190404070758
+ DEBUG [e5d51ef0] Finished in 0.090 seconds with exit status 0 (successful).
+  INFO [62b757d6] Running /usr/bin/env rm -rf /var/www/arkaan-notifications/releases/20190403211504 as deploy@51.15.76.189
+ DEBUG [62b757d6] Command: /usr/bin/env rm -rf /var/www/arkaan-notifications/releases/20190403211504
+  INFO [e3d35ea7] Finished in 0.091 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-04-04 09:21:43 +0200 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [488f1cbd] Running /usr/bin/env mkdir -p /tmp as deploy@51.15.76.189
+ DEBUG [488f1cbd] Command: /usr/bin/env mkdir -p /tmp
+  INFO [6207e557] Finished in 2.245 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-arkaan-notifications-staging-babausse.sh 0.0%
+  INFO Uploading /tmp/git-ssh-arkaan-notifications-staging-babausse.sh 100.0%
+  INFO [7504faba] Running /usr/bin/env chmod 700 /tmp/git-ssh-arkaan-notifications-staging-babausse.sh as deploy@51.15.76.189
+ DEBUG [7504faba] Command: /usr/bin/env chmod 700 /tmp/git-ssh-arkaan-notifications-staging-babausse.sh
+  INFO [8e30e71d] Finished in 0.093 seconds with exit status 0 (successful).
+  INFO [04aa5638] Running /usr/bin/env git ls-remote git@github.com:jdr-tools/notifications.git HEAD as deploy@51.15.76.189
+ DEBUG [04aa5638] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git ls-remote git@github.com:jdr-tools/notifications.git HEAD )
+ DEBUG [7899a41b] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb	HEAD
+  INFO [7899a41b] Finished in 1.239 seconds with exit status 0 (successful).
+  INFO [189cf4bc] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared /var/www/arkaan-notifications/releases as deploy@51.15.76.189
+ DEBUG [189cf4bc] Command: /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared /var/www/arkaan-notifications/releases
+  INFO [dd22f0a5] Finished in 0.043 seconds with exit status 0 (successful).
+  INFO [a5437b67] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared/config as deploy@51.15.76.189
+ DEBUG [a5437b67] Command: /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared/config
+  INFO [c86e5402] Finished in 0.113 seconds with exit status 0 (successful).
+ DEBUG [d9b03b1b] Running [ -f /var/www/arkaan-notifications/current/REVISION ] as deploy@51.15.76.189
+ DEBUG [d9b03b1b] Command: [ -f /var/www/arkaan-notifications/current/REVISION ]
+ DEBUG [bb72307a] Finished in 0.087 seconds with exit status 0 (successful).
+ DEBUG [b21822cc] Running /usr/bin/env cat /var/www/arkaan-notifications/current/REVISION 2>/dev/null as deploy@51.15.76.189
+ DEBUG [b21822cc] Command: /usr/bin/env cat /var/www/arkaan-notifications/current/REVISION 2>/dev/null
+ DEBUG [d3973bfe] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb
+ DEBUG [d3973bfe] Finished in 0.090 seconds with exit status 0 (successful).
+ DEBUG [ada826e5] Running [ -f /var/www/arkaan-notifications/repo/HEAD ] as deploy@51.15.76.189
+ DEBUG [ada826e5] Command: [ -f /var/www/arkaan-notifications/repo/HEAD ]
+ DEBUG [a8d8d133] Finished in 0.089 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/arkaan-notifications/repo
+ DEBUG [296c4589] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [296c4589] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [173ca14e] Finished in 0.139 seconds with exit status 0 (successful).
+  INFO [6fb84de2] Running /usr/bin/env git remote set-url origin git@github.com:jdr-tools/notifications.git as deploy@51.15.76.189
+ DEBUG [6fb84de2] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git remote set-url origin git@github.com:jdr-tools/notifications.git )
+  INFO [104d8222] Finished in 0.145 seconds with exit status 0 (successful).
+  INFO [2d2bc725] Running /usr/bin/env git remote update --prune as deploy@51.15.76.189
+ DEBUG [2d2bc725] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [05a25cc9] 	Fetching origin
+  INFO [05a25cc9] Finished in 1.269 seconds with exit status 0 (successful).
+ DEBUG [5cb73027] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [5cb73027] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [d8dfc220] Finished in 0.097 seconds with exit status 0 (successful).
+  INFO [85dd0803] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190404072147 as deploy@51.15.76.189
+ DEBUG [85dd0803] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190404072147 )
+  INFO [26539ec6] Finished in 0.144 seconds with exit status 0 (successful).
+  INFO [c8554590] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/arkaan-notifications/releases/20190404072147 as deploy@51.15.76.189
+ DEBUG [c8554590] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/arkaan-notifications/releases/20190404072147 )
+  INFO [8c44c0af] Finished in 0.153 seconds with exit status 0 (successful).
+ DEBUG [ea49624d] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [ea49624d] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [862786c6] Finished in 0.138 seconds with exit status 0 (successful).
+ DEBUG [f49df314] Running /usr/bin/env git rev-list --max-count=1 master as deploy@51.15.76.189
+ DEBUG [f49df314] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [e0b2b0b0] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb
+ DEBUG [e0b2b0b0] Finished in 0.149 seconds with exit status 0 (successful).
+ DEBUG [a56934cc] Running if test ! -d /var/www/arkaan-notifications/releases/20190404072147; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190404072147'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [a56934cc] Command: if test ! -d /var/www/arkaan-notifications/releases/20190404072147; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190404072147'" 1>&2; false; fi
+ DEBUG [f9bf7fde] Finished in 0.149 seconds with exit status 0 (successful).
+  INFO [489ceb76] Running /usr/bin/env echo "caa65b6a4fb179340d1816f8a75684aea76ca2fb" > REVISION as deploy@51.15.76.189
+ DEBUG [489ceb76] Command: cd /var/www/arkaan-notifications/releases/20190404072147 && /usr/bin/env echo "caa65b6a4fb179340d1816f8a75684aea76ca2fb" > REVISION
+  INFO [4b0cbab3] Finished in 0.088 seconds with exit status 0 (successful).
+  INFO [f28ebecc] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190404072147 as deploy@51.15.76.189
+ DEBUG [f28ebecc] Command: /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190404072147
+  INFO [83b92967] Finished in 0.086 seconds with exit status 0 (successful).
+ DEBUG [ede194db] Running [ -L /var/www/arkaan-notifications/releases/20190404072147/config ] as deploy@51.15.76.189
+ DEBUG [ede194db] Command: [ -L /var/www/arkaan-notifications/releases/20190404072147/config ]
+ DEBUG [7b307435] Finished in 0.086 seconds with exit status 1 (failed).
+ DEBUG [d301d620] Running [ -d /var/www/arkaan-notifications/releases/20190404072147/config ] as deploy@51.15.76.189
+ DEBUG [d301d620] Command: [ -d /var/www/arkaan-notifications/releases/20190404072147/config ]
+ DEBUG [a2e7f41f] Finished in 0.090 seconds with exit status 0 (successful).
+  INFO [a3840541] Running /usr/bin/env rm -rf /var/www/arkaan-notifications/releases/20190404072147/config as deploy@51.15.76.189
+ DEBUG [a3840541] Command: /usr/bin/env rm -rf /var/www/arkaan-notifications/releases/20190404072147/config
+  INFO [c892f5fc] Finished in 0.088 seconds with exit status 0 (successful).
+  INFO [ca800e3d] Running /usr/bin/env ln -s /var/www/arkaan-notifications/shared/config /var/www/arkaan-notifications/releases/20190404072147/config as deploy@51.15.76.189
+ DEBUG [ca800e3d] Command: /usr/bin/env ln -s /var/www/arkaan-notifications/shared/config /var/www/arkaan-notifications/releases/20190404072147/config
+  INFO [3ee6d5a1] Finished in 0.086 seconds with exit status 0 (successful).
+  INFO [daa310b4] Running /usr/bin/env ln -s /var/www/arkaan-notifications/releases/20190404072147 /var/www/arkaan-notifications/releases/current as deploy@51.15.76.189
+ DEBUG [daa310b4] Command: /usr/bin/env ln -s /var/www/arkaan-notifications/releases/20190404072147 /var/www/arkaan-notifications/releases/current
+  INFO [e909f3f5] Finished in 0.087 seconds with exit status 0 (successful).
+  INFO [ad87f70e] Running /usr/bin/env mv /var/www/arkaan-notifications/releases/current /var/www/arkaan-notifications as deploy@51.15.76.189
+ DEBUG [ad87f70e] Command: /usr/bin/env mv /var/www/arkaan-notifications/releases/current /var/www/arkaan-notifications
+  INFO [40db4287] Finished in 0.098 seconds with exit status 0 (successful).
+ DEBUG [3663bf68] Running /usr/bin/env ls -x /var/www/arkaan-notifications/releases as deploy@51.15.76.189
+ DEBUG [3663bf68] Command: /usr/bin/env ls -x /var/www/arkaan-notifications/releases
+ DEBUG [649f9794] 	20190403211550	20190403211622	20190403211654	20190403212021	20190404070758
+20190404072147
+ DEBUG [649f9794] Finished in 0.086 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on 51.15.76.189
+ DEBUG [c0e3d062] Running [ -d /var/www/arkaan-notifications/current ] as deploy@51.15.76.189
+ DEBUG [c0e3d062] Command: [ -d /var/www/arkaan-notifications/current ]
+ DEBUG [10256faa] Finished in 0.085 seconds with exit status 0 (successful).
+ DEBUG [5a420533] Running /usr/bin/env readlink /var/www/arkaan-notifications/current as deploy@51.15.76.189
+ DEBUG [5a420533] Command: /usr/bin/env readlink /var/www/arkaan-notifications/current
+ DEBUG [aa73ae6b] 	/var/www/arkaan-notifications/releases/20190404072147
+ DEBUG [aa73ae6b] Finished in 0.086 seconds with exit status 0 (successful).
+  INFO [7346e36e] Running /usr/bin/env rm -rf /var/www/arkaan-notifications/releases/20190403211550 as deploy@51.15.76.189
+ DEBUG [7346e36e] Command: /usr/bin/env rm -rf /var/www/arkaan-notifications/releases/20190403211550
+  INFO [8fa3c3a9] Finished in 0.096 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-04-04 09:30:09 +0200 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [bf09d499] Running /usr/bin/env mkdir -p /tmp as deploy@51.15.76.189
+ DEBUG [bf09d499] Command: /usr/bin/env mkdir -p /tmp
+  INFO [ada4ca1a] Finished in 1.876 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-arkaan-notifications-staging-babausse.sh 0.0%
+  INFO Uploading /tmp/git-ssh-arkaan-notifications-staging-babausse.sh 100.0%
+  INFO [b07ca7f5] Running /usr/bin/env chmod 700 /tmp/git-ssh-arkaan-notifications-staging-babausse.sh as deploy@51.15.76.189
+ DEBUG [b07ca7f5] Command: /usr/bin/env chmod 700 /tmp/git-ssh-arkaan-notifications-staging-babausse.sh
+  INFO [bca6286d] Finished in 0.089 seconds with exit status 0 (successful).
+  INFO [4d434905] Running /usr/bin/env git ls-remote git@github.com:jdr-tools/notifications.git HEAD as deploy@51.15.76.189
+ DEBUG [4d434905] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git ls-remote git@github.com:jdr-tools/notifications.git HEAD )
+ DEBUG [329224d7] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb	HEAD
+  INFO [329224d7] Finished in 4.955 seconds with exit status 0 (successful).
+  INFO [5e2b055e] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared /var/www/arkaan-notifications/releases as deploy@51.15.76.189
+ DEBUG [5e2b055e] Command: /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared /var/www/arkaan-notifications/releases
+  INFO [9f641d18] Finished in 0.045 seconds with exit status 0 (successful).
+  INFO [be503022] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared/config as deploy@51.15.76.189
+ DEBUG [be503022] Command: /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared/config
+  INFO [b7dafeb5] Finished in 0.088 seconds with exit status 0 (successful).
+ DEBUG [9d2d649d] Running [ -f /var/www/arkaan-notifications/current/REVISION ] as deploy@51.15.76.189
+ DEBUG [9d2d649d] Command: [ -f /var/www/arkaan-notifications/current/REVISION ]
+ DEBUG [db1e97f1] Finished in 0.093 seconds with exit status 0 (successful).
+ DEBUG [cc278bf0] Running /usr/bin/env cat /var/www/arkaan-notifications/current/REVISION 2>/dev/null as deploy@51.15.76.189
+ DEBUG [cc278bf0] Command: /usr/bin/env cat /var/www/arkaan-notifications/current/REVISION 2>/dev/null
+ DEBUG [a26db436] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb
+ DEBUG [a26db436] Finished in 0.097 seconds with exit status 0 (successful).
+ DEBUG [c80d704c] Running [ -f /var/www/arkaan-notifications/repo/HEAD ] as deploy@51.15.76.189
+ DEBUG [c80d704c] Command: [ -f /var/www/arkaan-notifications/repo/HEAD ]
+ DEBUG [84701dba] Finished in 0.093 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/arkaan-notifications/repo
+ DEBUG [88f9166d] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [88f9166d] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [c63697ff] Finished in 0.149 seconds with exit status 0 (successful).
+  INFO [d2055e7d] Running /usr/bin/env git remote set-url origin git@github.com:jdr-tools/notifications.git as deploy@51.15.76.189
+ DEBUG [d2055e7d] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git remote set-url origin git@github.com:jdr-tools/notifications.git )
+  INFO [6789fba1] Finished in 0.155 seconds with exit status 0 (successful).
+  INFO [7f8c5857] Running /usr/bin/env git remote update --prune as deploy@51.15.76.189
+ DEBUG [7f8c5857] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [48e65554] 	Fetching origin
+  INFO [48e65554] Finished in 3.343 seconds with exit status 0 (successful).
+ DEBUG [91e46902] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [91e46902] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [f7e5be4f] Finished in 0.099 seconds with exit status 0 (successful).
+  INFO [a8df9ff7] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190404073016 as deploy@51.15.76.189
+ DEBUG [a8df9ff7] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190404073016 )
+  INFO [228ee418] Finished in 0.153 seconds with exit status 0 (successful).
+  INFO [1412f49f] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/arkaan-notifications/releases/20190404073016 as deploy@51.15.76.189
+ DEBUG [1412f49f] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/arkaan-notifications/releases/20190404073016 )
+  INFO [a1afc1f8] Finished in 0.166 seconds with exit status 0 (successful).
+ DEBUG [9b8363a2] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [9b8363a2] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [33614003] Finished in 0.139 seconds with exit status 0 (successful).
+ DEBUG [a9bbbd80] Running /usr/bin/env git rev-list --max-count=1 master as deploy@51.15.76.189
+ DEBUG [a9bbbd80] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [27167e70] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb
+ DEBUG [27167e70] Finished in 0.154 seconds with exit status 0 (successful).
+ DEBUG [d7ff9825] Running if test ! -d /var/www/arkaan-notifications/releases/20190404073016; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190404073016'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [d7ff9825] Command: if test ! -d /var/www/arkaan-notifications/releases/20190404073016; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190404073016'" 1>&2; false; fi
+ DEBUG [ca64a491] Finished in 0.146 seconds with exit status 0 (successful).
+  INFO [38f0e6ee] Running /usr/bin/env echo "caa65b6a4fb179340d1816f8a75684aea76ca2fb" > REVISION as deploy@51.15.76.189
+ DEBUG [38f0e6ee] Command: cd /var/www/arkaan-notifications/releases/20190404073016 && /usr/bin/env echo "caa65b6a4fb179340d1816f8a75684aea76ca2fb" > REVISION
+  INFO [c4710f2b] Finished in 0.097 seconds with exit status 0 (successful).
+  INFO [bb32c2bf] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190404073016 as deploy@51.15.76.189
+ DEBUG [bb32c2bf] Command: /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190404073016
+  INFO [a08b69c3] Finished in 0.094 seconds with exit status 0 (successful).
+ DEBUG [830e4c26] Running [ -L /var/www/arkaan-notifications/releases/20190404073016/config ] as deploy@51.15.76.189
+ DEBUG [830e4c26] Command: [ -L /var/www/arkaan-notifications/releases/20190404073016/config ]
+ DEBUG [2de89c7e] Finished in 0.085 seconds with exit status 1 (failed).
+ DEBUG [0e88b7a7] Running [ -d /var/www/arkaan-notifications/releases/20190404073016/config ] as deploy@51.15.76.189
+ DEBUG [0e88b7a7] Command: [ -d /var/www/arkaan-notifications/releases/20190404073016/config ]
+ DEBUG [8a0568d9] Finished in 0.088 seconds with exit status 0 (successful).
+  INFO [ebc69f18] Running /usr/bin/env rm -rf /var/www/arkaan-notifications/releases/20190404073016/config as deploy@51.15.76.189
+ DEBUG [ebc69f18] Command: /usr/bin/env rm -rf /var/www/arkaan-notifications/releases/20190404073016/config
+  INFO [02688a69] Finished in 0.090 seconds with exit status 0 (successful).
+  INFO [fb276bdc] Running /usr/bin/env ln -s /var/www/arkaan-notifications/shared/config /var/www/arkaan-notifications/releases/20190404073016/config as deploy@51.15.76.189
+ DEBUG [fb276bdc] Command: /usr/bin/env ln -s /var/www/arkaan-notifications/shared/config /var/www/arkaan-notifications/releases/20190404073016/config
+  INFO [05a02c5a] Finished in 0.096 seconds with exit status 0 (successful).
+  INFO [b82de7bd] Running /usr/bin/env ln -s /var/www/arkaan-notifications/releases/20190404073016 /var/www/arkaan-notifications/releases/current as deploy@51.15.76.189
+ DEBUG [b82de7bd] Command: /usr/bin/env ln -s /var/www/arkaan-notifications/releases/20190404073016 /var/www/arkaan-notifications/releases/current
+  INFO [02b819d7] Finished in 0.086 seconds with exit status 0 (successful).
+  INFO [8b322351] Running /usr/bin/env mv /var/www/arkaan-notifications/releases/current /var/www/arkaan-notifications as deploy@51.15.76.189
+ DEBUG [8b322351] Command: /usr/bin/env mv /var/www/arkaan-notifications/releases/current /var/www/arkaan-notifications
+  INFO [2ec33e86] Finished in 0.088 seconds with exit status 0 (successful).
+ DEBUG [b5d502cf] Running /usr/bin/env ls -x /var/www/arkaan-notifications/releases as deploy@51.15.76.189
+ DEBUG [b5d502cf] Command: /usr/bin/env ls -x /var/www/arkaan-notifications/releases
+ DEBUG [f205705c] 	20190403211622	20190403211654	20190403212021	20190404070758	20190404072147
+20190404073016
+ DEBUG [f205705c] Finished in 0.095 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on 51.15.76.189
+ DEBUG [282d2f00] Running [ -d /var/www/arkaan-notifications/current ] as deploy@51.15.76.189
+ DEBUG [282d2f00] Command: [ -d /var/www/arkaan-notifications/current ]
+ DEBUG [d2901043] Finished in 0.092 seconds with exit status 0 (successful).
+ DEBUG [9223505a] Running /usr/bin/env readlink /var/www/arkaan-notifications/current as deploy@51.15.76.189
+ DEBUG [9223505a] Command: /usr/bin/env readlink /var/www/arkaan-notifications/current
+ DEBUG [5be93ea9] 	/var/www/arkaan-notifications/releases/20190404073016
+ DEBUG [5be93ea9] Finished in 0.090 seconds with exit status 0 (successful).
+  INFO [d3beb02e] Running /usr/bin/env rm -rf /var/www/arkaan-notifications/releases/20190403211622 as deploy@51.15.76.189
+ DEBUG [d3beb02e] Command: /usr/bin/env rm -rf /var/www/arkaan-notifications/releases/20190403211622
+  INFO [ade4c87a] Finished in 0.099 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-04-04 09:35:33 +0200 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [c9c749b9] Running /usr/bin/env mkdir -p /tmp as deploy@51.15.76.189
+ DEBUG [c9c749b9] Command: /usr/bin/env mkdir -p /tmp
+  INFO [7410048f] Finished in 1.849 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-arkaan-notifications-staging-babausse.sh 0.0%
+  INFO Uploading /tmp/git-ssh-arkaan-notifications-staging-babausse.sh 100.0%
+  INFO [403c8cf8] Running /usr/bin/env chmod 700 /tmp/git-ssh-arkaan-notifications-staging-babausse.sh as deploy@51.15.76.189
+ DEBUG [403c8cf8] Command: /usr/bin/env chmod 700 /tmp/git-ssh-arkaan-notifications-staging-babausse.sh
+  INFO [48b677bc] Finished in 0.088 seconds with exit status 0 (successful).
+  INFO [4a56a810] Running /usr/bin/env git ls-remote git@github.com:jdr-tools/notifications.git HEAD as deploy@51.15.76.189
+ DEBUG [4a56a810] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git ls-remote git@github.com:jdr-tools/notifications.git HEAD )
+ DEBUG [342058dc] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb	HEAD
+  INFO [342058dc] Finished in 1.254 seconds with exit status 0 (successful).
+  INFO [d2ef7fa5] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared /var/www/arkaan-notifications/releases as deploy@51.15.76.189
+ DEBUG [d2ef7fa5] Command: /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared /var/www/arkaan-notifications/releases
+  INFO [d99013f6] Finished in 0.045 seconds with exit status 0 (successful).
+  INFO [08e1e1b3] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared/config as deploy@51.15.76.189
+ DEBUG [08e1e1b3] Command: /usr/bin/env mkdir -p /var/www/arkaan-notifications/shared/config
+  INFO [0d91b820] Finished in 0.099 seconds with exit status 0 (successful).
+ DEBUG [8153504a] Running [ -f /var/www/arkaan-notifications/shared/config/mongoid.yml ] as deploy@51.15.76.189
+ DEBUG [8153504a] Command: [ -f /var/www/arkaan-notifications/shared/config/mongoid.yml ]
+ DEBUG [58a4a817] Finished in 0.094 seconds with exit status 0 (successful).
+ DEBUG [9ca173b3] Running [ -f /var/www/arkaan-notifications/current/REVISION ] as deploy@51.15.76.189
+ DEBUG [9ca173b3] Command: [ -f /var/www/arkaan-notifications/current/REVISION ]
+ DEBUG [a6e4371b] Finished in 0.088 seconds with exit status 0 (successful).
+ DEBUG [e851eca2] Running /usr/bin/env cat /var/www/arkaan-notifications/current/REVISION 2>/dev/null as deploy@51.15.76.189
+ DEBUG [e851eca2] Command: /usr/bin/env cat /var/www/arkaan-notifications/current/REVISION 2>/dev/null
+ DEBUG [c879acde] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb
+ DEBUG [c879acde] Finished in 0.099 seconds with exit status 0 (successful).
+ DEBUG [abda4fa6] Running [ -f /var/www/arkaan-notifications/repo/HEAD ] as deploy@51.15.76.189
+ DEBUG [abda4fa6] Command: [ -f /var/www/arkaan-notifications/repo/HEAD ]
+ DEBUG [4b4d0135] Finished in 0.088 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/arkaan-notifications/repo
+ DEBUG [51720d55] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [51720d55] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [46a556a0] Finished in 0.149 seconds with exit status 0 (successful).
+  INFO [bebace89] Running /usr/bin/env git remote set-url origin git@github.com:jdr-tools/notifications.git as deploy@51.15.76.189
+ DEBUG [bebace89] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git remote set-url origin git@github.com:jdr-tools/notifications.git )
+  INFO [7c69a3f9] Finished in 0.146 seconds with exit status 0 (successful).
+  INFO [3cb372d6] Running /usr/bin/env git remote update --prune as deploy@51.15.76.189
+ DEBUG [3cb372d6] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [48491f39] 	Fetching origin
+  INFO [48491f39] Finished in 1.268 seconds with exit status 0 (successful).
+ DEBUG [2ed01942] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [2ed01942] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [90305a2a] Finished in 0.093 seconds with exit status 0 (successful).
+  INFO [5662188d] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190404073537 as deploy@51.15.76.189
+ DEBUG [5662188d] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190404073537 )
+  INFO [cc461e78] Finished in 0.150 seconds with exit status 0 (successful).
+  INFO [2008d73b] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/arkaan-notifications/releases/20190404073537 as deploy@51.15.76.189
+ DEBUG [2008d73b] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/arkaan-notifications/releases/20190404073537 )
+  INFO [cd1776aa] Finished in 0.153 seconds with exit status 0 (successful).
+ DEBUG [c0c654a3] Running if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [c0c654a3] Command: if test ! -d /var/www/arkaan-notifications/repo; then echo "Directory does not exist '/var/www/arkaan-notifications/repo'" 1>&2; false; fi
+ DEBUG [fde01b39] Finished in 0.140 seconds with exit status 0 (successful).
+ DEBUG [ad296a95] Running /usr/bin/env git rev-list --max-count=1 master as deploy@51.15.76.189
+ DEBUG [ad296a95] Command: cd /var/www/arkaan-notifications/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-arkaan-notifications-staging-babausse.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [b473279b] 	caa65b6a4fb179340d1816f8a75684aea76ca2fb
+ DEBUG [b473279b] Finished in 0.145 seconds with exit status 0 (successful).
+ DEBUG [f003ff42] Running if test ! -d /var/www/arkaan-notifications/releases/20190404073537; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190404073537'" 1>&2; false; fi as deploy@51.15.76.189
+ DEBUG [f003ff42] Command: if test ! -d /var/www/arkaan-notifications/releases/20190404073537; then echo "Directory does not exist '/var/www/arkaan-notifications/releases/20190404073537'" 1>&2; false; fi
+ DEBUG [9aa16721] Finished in 0.138 seconds with exit status 0 (successful).
+  INFO [e62fe45c] Running /usr/bin/env echo "caa65b6a4fb179340d1816f8a75684aea76ca2fb" > REVISION as deploy@51.15.76.189
+ DEBUG [e62fe45c] Command: cd /var/www/arkaan-notifications/releases/20190404073537 && /usr/bin/env echo "caa65b6a4fb179340d1816f8a75684aea76ca2fb" > REVISION
+  INFO [9b3e5e31] Finished in 0.096 seconds with exit status 0 (successful).
+  INFO [e4ca292e] Running /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190404073537/config as deploy@51.15.76.189
+ DEBUG [e4ca292e] Command: /usr/bin/env mkdir -p /var/www/arkaan-notifications/releases/20190404073537/config
+  INFO [ef324037] Finished in 0.095 seconds with exit status 0 (successful).
+ DEBUG [1a175ab2] Running [ -L /var/www/arkaan-notifications/releases/20190404073537/config/mongoid.yml ] as deploy@51.15.76.189
+ DEBUG [1a175ab2] Command: [ -L /var/www/arkaan-notifications/releases/20190404073537/config/mongoid.yml ]
+ DEBUG [440ae366] Finished in 0.085 seconds with exit status 1 (failed).
+ DEBUG [6b15a72e] Running [ -f /var/www/arkaan-notifications/releases/20190404073537/config/mongoid.yml ] as deploy@51.15.76.189
+ DEBUG [6b15a72e] Command: [ -f /var/www/arkaan-notifications/releases/20190404073537/config/mongoid.yml ]
+ DEBUG [57b1eef9] Finished in 0.087 seconds with exit status 0 (successful).
+  INFO [aeb8985d] Running /usr/bin/env rm /var/www/arkaan-notifications/releases/20190404073537/config/mongoid.yml as deploy@51.15.76.189
+ DEBUG [aeb8985d] Command: /usr/bin/env rm /var/www/arkaan-notifications/releases/20190404073537/config/mongoid.yml
+  INFO [33c51328] Finished in 0.099 seconds with exit status 0 (successful).
+  INFO [e43236b3] Running /usr/bin/env ln -s /var/www/arkaan-notifications/shared/config/mongoid.yml /var/www/arkaan-notifications/releases/20190404073537/config/mongoid.yml as deploy@51.15.76.189
+ DEBUG [e43236b3] Command: /usr/bin/env ln -s /var/www/arkaan-notifications/shared/config/mongoid.yml /var/www/arkaan-notifications/releases/20190404073537/config/mongoid.yml
+  INFO [241054ef] Finished in 0.152 seconds with exit status 0 (successful).
+  INFO [a920745b] Running /usr/bin/env ln -s /var/www/arkaan-notifications/releases/20190404073537 /var/www/arkaan-notifications/releases/current as deploy@51.15.76.189
+ DEBUG [a920745b] Command: /usr/bin/env ln -s /var/www/arkaan-notifications/releases/20190404073537 /var/www/arkaan-notifications/releases/current
+  INFO [30cb4e9e] Finished in 0.094 seconds with exit status 0 (successful).
+  INFO [2088f4b7] Running /usr/bin/env mv /var/www/arkaan-notifications/releases/current /var/www/arkaan-notifications as deploy@51.15.76.189
+ DEBUG [2088f4b7] Command: /usr/bin/env mv /var/www/arkaan-notifications/releases/current /var/www/arkaan-notifications
+  INFO [026c9165] Finished in 0.088 seconds with exit status 0 (successful).
+ DEBUG [a2a0f359] Running /usr/bin/env ls -x /var/www/arkaan-notifications/releases as deploy@51.15.76.189
+ DEBUG [a2a0f359] Command: /usr/bin/env ls -x /var/www/arkaan-notifications/releases
+ DEBUG [a2dec0c0] 	20190403211654	20190403212021	20190404070758	20190404072147	20190404073016
+20190404073537
+ DEBUG [a2dec0c0] Finished in 0.095 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on 51.15.76.189
+ DEBUG [ec88d2f6] Running [ -d /var/www/arkaan-notifications/current ] as deploy@51.15.76.189
+ DEBUG [ec88d2f6] Command: [ -d /var/www/arkaan-notifications/current ]
+ DEBUG [3ddbeb23] Finished in 0.093 seconds with exit status 0 (successful).
+ DEBUG [5c104570] Running /usr/bin/env readlink /var/www/arkaan-notifications/current as deploy@51.15.76.189
+ DEBUG [5c104570] Command: /usr/bin/env readlink /var/www/arkaan-notifications/current
+ DEBUG [c6cbcb43] 	/var/www/arkaan-notifications/releases/20190404073537
+ DEBUG [c6cbcb43] Finished in 0.097 seconds with exit status 0 (successful).
+  INFO [f4a85a48] Running /usr/bin/env rm -rf /var/www/arkaan-notifications/releases/20190403211654 as deploy@51.15.76.189
+ DEBUG [f4a85a48] Command: /usr/bin/env rm -rf /var/www/arkaan-notifications/releases/20190403211654
+  INFO [fb364c0e] Finished in 0.101 seconds with exit status 0 (successful).
