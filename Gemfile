@@ -11,6 +11,7 @@ group :developement, :production do
   gem 'rake'
   gem 'capistrano', '3.11.0'
   gem 'capistrano-bundler', '1.5.0'
+  gem 'capistrano-rvm', '0.1.1'
 end
 
 group :development, :test do
