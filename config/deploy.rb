@@ -26,7 +26,7 @@ set :deploy_to, "/var/www/arkaan-notifications"
 
 append :linked_files, 'config/mongoid.yml'
 
-append :linked_dirs, '.bundle'
+append :linked_dirs, 'bundle'
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"

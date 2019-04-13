@@ -3,3 +3,4 @@ doc/
 coverage/
 .env
 config/mongoid.yml
+log/
