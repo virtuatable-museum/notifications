@@ -4,6 +4,9 @@ require "capistrano/setup"
 # Include default deployment tasks
 require "capistrano/deploy"
 
+# Include bundle install task
+require 'capistrano/bundler'
+
 # Load the SCM plugin appropriate to your project:
 #
 # require "capistrano/scm/hg"
@@ -36,11 +39,3 @@ install_plugin Capistrano::SCM::Git
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
-
-namespace :deploy do
-  after :finishing, :install_bundler do
-    sh 'gem install bundler:2.0.1'
-    sh 'bundle install'
-    sh 'rackup --port $PORT --env $RACK_ENV -o 0.0.0.0'
-  end
-end

@@ -24,6 +24,10 @@ set :deploy_to, "/var/www/arkaan-notifications"
 # Default value for :linked_files is []
 # append :linked_files, "config/database.yml"
 
+append :linked_files, 'config/mongoid.yml'
+
+append :linked_dirs, '.bundle'
+
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
@@ -38,5 +42,3 @@ set :deploy_to, "/var/www/arkaan-notifications"
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
-
-append :linked_files, 'config/mongoid.yml'
