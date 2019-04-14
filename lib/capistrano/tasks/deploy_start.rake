@@ -9,7 +9,6 @@ namespace :deploy do
         else
           puts "Le fichier du PID n'a pas été trouvé et ne peux pas être supprimé."
         end
-        execute :source, '.env'
         execute :bundle, 'exec rackup -p 9292 --env production -o 0.0.0.0 -P /tmp/arkaan.pid --daemonize'
       end
     end
