@@ -1,7 +1,7 @@
 lock '~> 3.11.0'
 
-set :application, 'arkaan-notifications'
-set :deploy_to, '/var/www/arkaan-notifications'
+set :application, 'virtuatable-notifications'
+set :deploy_to, '/var/www/notifications'
 
 set :repo_url, 'git@github.com:jdr-tools/notifications.git'
 set :branch, 'master'
