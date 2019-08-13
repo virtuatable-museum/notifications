@@ -1,7 +1,9 @@
 module Controllers
-  class Notifications < Arkaan::Utils::Controller
+  class Notifications < Arkaan::Utils::Controllers::Checked
 
     load_errors_from __FILE__
+
+    declare_status_route
 
     declare_route 'get', '/' do
       session = check_session('notifications_list')
