@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Services
   # Service to get the notifications linked to a connected player.
   # @author Vincent Courtois <courtois.vincent@outlook.com>
@@ -5,17 +7,17 @@ module Services
     include Singleton
 
     # Gets the sorted and filtered list of notifications for the given session.
-    # @param session [Arkaan::Authentication::Session] the session the player is connected with.
-    # @return [Array<Arkaan::Notification>] the notifications linked to the player.
+    # @param session [Arkaan::Authentication::Session] the player's session.
+    # @return [Array<Arkaan::Notification>] the notifications of the player.
     def list(session, parameters)
       notifications = sorted_notifications(session)
-      if parameters.has_key?('skip')
+      if parameters.key?('skip')
         notifications = notifications.skip(parameters['skip'].to_i)
       end
-      if parameters.has_key?('limit')
+      if parameters.key?('limit')
         notifications = notifications.limit(parameters['limit'].to_i)
       end
-      return notifications.to_a.map do |notification|
+      notifications.to_a.map do |notification|
         Decorators::Notification.decorate(notification).to_h
       end
     end
@@ -23,7 +25,7 @@ module Services
     private
 
     def sorted_notifications(session)
-      return session.account.notifications.order_by(created_at: :desc)
+      session.account.notifications.order_by(created_at: :desc)
     end
   end
 end
