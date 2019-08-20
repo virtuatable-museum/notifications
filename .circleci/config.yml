@@ -54,3 +54,5 @@ workflows:
             branches:
               only:
                 - master
+    jobs:
+      - restart-job
